@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>初めてのWebページ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo">私のサイト</h1>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#hero">ホーム</a></li>
+                <li><a href="#profile">プロフィール</a></li>
+                <li><a href="#skills">スキル</a></li>
+                <li><a href="#works">works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">ようこそ、私のサイトへ</h1>
+            <p class="hero-sub">Web制作勉強中です</p>
+        </div>
+    </section>
+
+    <main class="fade-in">
+        <p id="description">ここにサイトの説明文が入ります。</p>
+        <img src="test.png" alt="説明画像" class="main-image" />
+        <button class="btn">詳しく見る</button>
+
+        <section class="profile" id="profile">
+            <h2>プロフィール</h2>
+            <p>こんにちは! Web制作を学習中の神代です。</p>
+            <p>日々学んだことを積み上げて、在宅で働けるエンジニアを目指しています。</p>
+        </section>
+
+        <section class="skills" id="skills">
+            <h2>スキル</h2>
+            <ul>
+                <li>HTML : 学習中 (基本的なページ構成が作れます)</li>
+                <li>CSS : 学習中 (簡単なデザイン調整ができます)</li>
+                <li>今後 : JavaScriptを勉強して、動きのあるサイトを作れるようになる予定</li>
+            </ul>
+        </section>
+
+        <section class="works" id="works">
+            <h2>制作実績（練習中）</h2>
+            <p>これまでに作成・練習したWebページの一覧です。</p>
+
+            <div class="works-list">
+                <article class="works-card">
+                    <h3>シンプルな自己紹介サイト</h3>
+                    <p>HTMLとCSSだけで作成した、現在ご覧いただいているこのページです。</p>
+                </article>
+
+                <article class="works-card">
+                    <h3>ボタンとアニメーションのテストページ</h3>
+                    <P>JavaScriptとCSSアニメーションの練習用に作成したデモページです。(今後追加予定)</P>
+                </article>
+
+                <article class="works-card">
+                    <h3>レスポンシブレイアウトの練習</h3>
+                    <p>スマホ対応のデザインや、レイアウト崩れを直す練習用ページです。(今後追加予定)</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>Contact</h2>
+            <p>
+                Web制作のご相談やお仕事のご依頼は、<br>
+                下記のボタンからお気軽にご連絡ください。
+            </p>
+        <a class="btncontact-btn" href="mailto:yuukamisiro25@gmail.com">
+            メールで問い合わせる
+        </a>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
