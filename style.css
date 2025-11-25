@@ -119,7 +119,7 @@ footer{
 }
 
 /* スマホ調整 */
-@media screen and (max-width: 600px){
+@media screen and (max-width: 768px){
     h1{
         font-size: 28px;
     }
@@ -264,12 +264,55 @@ nav a:hover{
         align-items: center;
         text-align: center;
         padding: 40px 16px;
+        padding-top: 72px;
+    }
+
+    .apple-hero{
+        padding: 80px 20px;
+        text-align: left;
+    }
+
+    .apple-hero-title{
+        font-size: 36px;
+        line-height: 1.2;
+    }
+    .apple-hero-sub{
+        font-size: 18px;
+        margin-top: 20px;
+        max-width: 300px;
+    }
+
+    .apple-hero-btns{
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 24px;
+    }
+
+    .apple-hero-image{
+        width: 100%;
+        transform: translateY(0);
+        margin-top: 40px;
+    }
+
+    .hero-inner{
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
     }
 
     /*テキスト側*/
     .hero-text{
         max-width: 100%;
         margin-bottom: 24px;
+        order: 1;
+    }
+
+    .hero-text h1{
+        font-size: 2.5rem;
+    }
+
+    .hero-text p{
+        font-size: 1.2rem;
     }
 
     .hero-title{
@@ -284,6 +327,18 @@ nav a:hover{
     .hero-image{
         width: 100%;
         max-width: 360px;
+    }
+
+    .hero-image img{
+        width: 280px;
+    }
+
+    .hero-visual{
+        order: 2;
+    }
+
+    .hero-buttons{
+        justify-content: center;
     }
     
     .works{
@@ -347,7 +402,7 @@ nav a:hover{
 }
 
 .container{
-    max-width: 1000px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -361,15 +416,190 @@ nav a:hover{
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
+/*Apple風 Hero*/
 .hero{
-    height: 100vh;
-    background-image: url("OIP.webp");/*画像*/
-    background-size: cover;
-    background-position: center;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 0 8%;
-    color: white;
+    padding: 80px 16px 40px;
+    color: #111;
+    background: radial-gradient(circle at top, #f5f5f7 0, #ffffff 45%, #f5f5f7 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-inner{
+    max-width: 1120px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    gap: 64px;
+    align-items: center;
+}
+
+.hero-text{
+    flex: 1.2;
+}
+
+.hero-visual{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*ラベル・タイトル・テキスト*/
+.hero-label{
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6e6e73;
+    margin-bottom: 16px;
+}
+
+.hero-title{
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+}
+
+.hero-sub{
+    font-size: 16px;
+    line-height: 1.8;
+    color: #3a3a3c;
+    margin-bottom: 32px;
+}
+
+/*ボタン*/
+.hero-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: transfrom 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+    color 0.2s ease, border-color 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.hero-btn.primary{
+    background: #111;
+    color: #fff;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.2);
+}
+
+.hero-btn.primary:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.2);
+}
+
+.hero-btn.secondary{
+    background: transparent;
+    color: #111;
+    border-color: #d2d2d7;
+}
+
+.hero-btn.secondary:hover{
+    background: #f5f5f7;
+}
+
+/*右側のカード（仮のビジュアル）*/
+.hero-card{
+    width: 280px;
+    max-width: 90%;
+    padding: 24px 20px;
+    border-radius: 32px;
+    background: linear-gradient(145deg, #fff, #2c2c2e);
+    color: #f5f5f7;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    transform: translateY(10px);
+    opacity: 0;
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.hero-card-label{
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9a9aa0;
+    margin-bottom: 8px;
+}
+
+.hero-card-title{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.hero-card-text{
+    font-size: 13px;
+    color: #d2d2d7;
+}
+
+/*Scrollインジケーター*/
+.hero-scroll{
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #6e6e73;
+}
+
+.hero-scroll-line{
+    width: 1px;
+    height: 26px;
+    background: #d2d2d7;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-scroll-line::before{
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: #111;
+    animation: scrollLine 1.8s infinite;
+    border-radius: 999px;
+}
+
+@keyframes scrollLine{
+    0%{transform: translateY(0); opacity: 0;}
+    20%{opacity: 1;}
+    100%{transform: translateY(24px); opacity: 0;}
+}
+
+/*フェードイン用クラス*/
+.hero.is-visible .hero-card{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-up{
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.fade-up.show{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-content{
@@ -388,16 +618,56 @@ nav a:hover{
     color: black;
 }
 
-.hero-btn{
-    display: inline-block;
-    background-color: black;
-    color: white;
-    padding: 14px 32px;
-    font-size: 16px;
-    border-radius: 4px;
-    text-decoration: none;
-}
-
 .hero-btn:hover{
     background-color: #333;
+}
+
+.apple-hero{
+    height: 100vh;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.hero-text h1{
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.hero-text p{
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/*画像アニメ*/
+.hero-image img{
+    width: 450px;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeScale 1.4s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/*フェード&スライド*/
+@keyframes fadeSlide{
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*ふわっと拡大*/
+@keyframes fadeScale{
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
 }

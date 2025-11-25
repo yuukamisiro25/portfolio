@@ -6,23 +6,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1 class="logo">私のサイト</h1>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="#hero">ホーム</a></li>
-                <li><a href="#profile">プロフィール</a></li>
-                <li><a href="#skills">スキル</a></li>
-                <li><a href="#works">works</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <p class="hero-label">Front-end Developer</p>
+                <h1 class="apple-hero-title fade-up">
+                    シンプルで、<br>
+                    伝えるデザインを。
+                </h1>
+                <p class="apple-hero-sub fade-up">
+                    小さなLPからポートフォリオまで。<br>
+                    コードとデザインで、あなたの「伝えたい」を形にします。
+                </p>
+                <div class="apple-hero-btns fade-up">
+                    <a href="#works" class="hero-btn primary">Worksを見る</a>
+                    <a href="#contact" class="hero-btn secondary">Contactへ</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <p class="hero-card-label">Latest Work</p>
+                    <p class="hero-card-title">UNIQLO Hero Clone</p>
+                    <p class="hero-card-text">UI再現とレスポンシブ対応。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <span class="hero-scroll-text">Scroll</span>
+            <span class="hero-scroll-line"></span>
+        </div>
     </header>
 
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1>>LifeWear</h1>
-            <p>簡潔で、機能的で、美しい。</p>
+    <section class="apple-hero">
+        <div class="hero-text">
+            <h1>>iPhone 16 Pro</h1>
+            <p>さらに一歩先へ。</p>
+        </div>
+
+        <div class="hero-image">
+            <img src="iphone.png" alt="iPhone">
         </div>
     </section>
 
@@ -57,8 +80,13 @@
 
             <div class="works-list">
                 <article class="works-card">
-                    <h3>シンプルな自己紹介サイト</h3>
-                    <p>HTMLとCSSだけで作成した、現在ご覧いただいているこのページです。</p>
+                    <h3>Apple風 Heroセクション</h3>
+                    <p>Apple公式サイトの構成を参考にしつつ<br>
+                    オリジナルのHeroセレクションを再現しました。<br>
+                    CSSアニメーションとJavaScriptでフェードイン演出を実装しています。<br>
+                    現在ご覧いただいているこのページです。
+
+                    </p>
                 </article>
 
                 <article class="works-card">

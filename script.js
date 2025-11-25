@@ -43,3 +43,33 @@ navLinks.forEach(link => {
         }
     });
 });
+
+const hero = document.querySelector('.apple-hero');
+
+window.addEventListener('scroll',() => {
+    const scrollY = window.scrollY;
+    const fadePoint = 1500;//どれくらいスクロールしたら薄くなるか
+
+    const opacity = Math.max(1 - scrollY / fadePoint,0);
+    hero.style.opacity = opacity;
+});
+
+// Apple風 Heroのフェードイン
+document.addEventListener('DOMContentLoaded', () =>{
+    const hero = document.querySelector('.hero');
+
+    if(!hero) return;
+
+    //ページ読み込み時に一瞬遅らせてクラスを付ける
+    setTimeout(() => {
+        hero.classList.add('is-visible');
+    }, 200);
+
+    const fadeEls = document.querySelectorAll('.fade-up');
+
+    fadeEls.forEach((el, i) => {
+        setTimeout(() => {
+            el.classList.add('show');
+        }, 200 * i);
+    });
+});
