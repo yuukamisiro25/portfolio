@@ -8,10 +8,14 @@ body{
     background-color: #f7f7f7;
 }
 
-.lp-container{
-    width: min(100%, 960px);
+.container{
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 20px;
+}
+
+section{
+    padding: 80px 0;
 }
 
 /*ヒーロー*/
@@ -19,8 +23,8 @@ body{
 .lp-hero{
     background: radial-gradient(circle at top, #ffffff 0,
     #f0f4ff 40% , #e3ebff 100%);
-    padding: 80px 0 72px;
-    text-align: left;
+    padding: 120px 0;
+    text-align: center;
 }
 
 .lp-tagline{
