@@ -1,11 +1,18 @@
-/*全体*/
-
+/*=============================
+  Global
+=============================*/
 body{
     margin: 0;
-    font-family: system-ui, -apple-system, 
-    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: system-ui, -apple-system,
+    BlinkMacSystemFont,'Segoe UI',sans-serif;
     color: #222;
     background-color: #f7f7f7;
+    line-height: 1.7;
+}
+
+section{
+    padding: 80px 0;
+    overflow-x: hidden;
 }
 
 .container{
@@ -14,15 +21,11 @@ body{
     padding: 0 20px;
 }
 
-section{
-    padding: 80px 0;
-}
-
-/*ヒーロー*/
-
+/*=============================
+  Hero
+=============================*/
 .lp-hero{
-    background: radial-gradient(circle at top, #ffffff 0,
-    #f0f4ff 40% , #e3ebff 100%);
+    background: radial-gradient(circle at top,#ffffff 0,#f0f4ff 40%,#e3ebff 100%);
     padding: 120px 0;
     text-align: center;
 }
@@ -36,7 +39,7 @@ section{
 }
 
 .lp-title{
-    font-size: clamp(28px, 5vw, 40px);
+    font-size: clamp(28px,5vw,40px);
     line-height: 1.3;
     margin: 0 0 16px;
 }
@@ -46,16 +49,19 @@ section{
     line-height: 1.8;
     max-width: 520px;
     color: #555;
-    margin: 0 0 24px;
+    margin: 0 auto 24px;
 }
 
 .lp-hero-actions{
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    justify-content: center;
 }
 
-/*ボタン*/
+/*=============================
+  Button
+=============================*/
 .lp-btn{
     display: inline-flex;
     align-items: center;
@@ -65,26 +71,26 @@ section{
     font-size: 14px;
     text-decoration: none;
     border: 1px solid transparent;
-    transition: background-color 0.2s ease, color 0.2 ease,
-    transform 0.1s ease, box-shadow 0.1s ease;
     cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease,
+                transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 .lp-btn-primary{
     background-color: #111827;
     color: #fff;
     border-color: #111827;
-    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.3);
+    box-shadow: 0 4px 10px rgba(15,23,42,0.3);
 }
 
 .lp-btn-primary:hover{
     background-color: #020617;
     transform: translateY(1px);
-    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
+    box-shadow: 0 4px 10px rgba(15,23,42,0.25);
 }
 
 .lp-btn-ghost{
-    background-color: #ffffff;
+    background-color: #fff;
     color: #111827;
     border-color: #d4d4d8;
 }
@@ -93,14 +99,16 @@ section{
     background-color: #f4f4f5;
 }
 
-/*セクション*/
+/*=============================
+  Sections
+=============================*/
 .lp-section{
     padding: 64px 0;
     background-color: #f7f7f7;
 }
 
 .lp-section-alt{
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 .lp-section-title{
@@ -118,7 +126,9 @@ section{
     color: #555;
 }
 
-/*リスト（お悩み）*/
+/*=============================
+  List (悩み)
+=============================*/
 .lp-list{
     max-width: 520px;
     margin: 16px auto 0;
@@ -127,7 +137,9 @@ section{
     line-height: 1.9;
 }
 
-/*特殊カード*/
+/*=============================
+  Features
+=============================*/
 .lp-features{
     display: grid;
     gap: 20px;
@@ -135,10 +147,10 @@ section{
 }
 
 .lp-features-card{
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 16px;
     padding: 20px 20px 18px;
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 6px 16px rgba(15,23,42,0.08);
 }
 
 .lp-features-card h3{
@@ -153,7 +165,9 @@ section{
     color: #555;
 }
 
-/*制作の流れ*/
+/*=============================
+  Steps
+=============================*/
 .lp-steps{
     list-style: none;
     padding: 0;
@@ -183,7 +197,9 @@ section{
     flex-shrink: 0;
 }
 
-/*Contact セクション*/
+/*=============================
+  Contact
+=============================*/
 .lp-contact{
     text-align: center;
 }
@@ -192,7 +208,9 @@ section{
     margin-top: 20px;
 }
 
-/*フッター*/
+/*=============================
+  Footer
+=============================*/
 .lp-footer{
     padding: 24px 0;
     text-align: center;
@@ -201,24 +219,24 @@ section{
     background-color: #f4f4f5;
 }
 
-/*スマホ対応*/
-@media (max-width: 640px) {
+/*=============================
+  Responsive
+=============================*/
+@media (max-width: 640px){
     .lp-hero{
         padding: 56px 0 48px;
     }
-
     .lp-hero-actions{
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
     }
-
     .lp-features-card{
         padding: 18px 16px 16px;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px){
     .lp-features{
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(3,minmax(0,1fr));
     }
 }
