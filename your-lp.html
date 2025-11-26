@@ -1,25 +1,111 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>シンプルLPサイト</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>シンプルLPサイト(練習)</h1>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <title>シンプルLPサイト（練習）</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="lp.css">
+    </head>
+    <body>
+        <!--ヒーロー-->
+        <header class="lp-hero">
+            <div class="lp-container">
+                <p class="lp-tagline">Small Landing Page / Practice</p>
+                <h1 class="lp-title">シンプルでも、伝わる１枚を。</h1>
+                <p class="lp-subtitle">
+                小さなサービスや個人の活動を、一枚のLPでわかりやすく
+                伝えることを想定したデザイン練習用ページです。
+                </p>
+                <div class="lp-hero-actions">
+                    <a href="#lp-contact" class="lp-btn lp-btn-primary">お問い合わせへ</a>
+                    <a href="lp-about" class="lp-btn lp-btn-ghost">このLPについて見る</a>
+                </div>
+            </div>
+        </header>
 
-    <main>
-        <section>
-            <h2>サービスのキャッチコピー</h2>
-            <p>ここのサービスや商品の簡単な説明を書きます。</p>
-            <button class="btn" href="mailto:yuukamisiro25@gmail.com">お問い合わせ</button>
+        <!--セクション : このLPについて-->
+        <section id="lp-about" class="lp-section">
+            <div class="lp-container">
+                <h2 class="lp-section-title">このLPで想定しているサービス</h2>
+                <p class="lp-section-text">
+                個人事業主さんや小さなショップ向けに、
+                「とりあえず一枚でいいから、サービス内容をわかりやす
+                くまとめたい」
+                というニーズを想定したLPです。
+                </p>
+            </div>
         </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2025 My Website</p>
-    </footer>
-</body>
+        <!--セクション : こんなお悩みはありませんか？-->
+        <section class="lp-section lp-section-alt">
+            <div class="lp-container">
+                <h2 class="lp-section-title">こんなお悩みはありませんか？</h2>
+                <ul class="lp-list">
+                    <li>とりあえずシンプルなLPだけ欲しい</li>
+                    <li>文章や構成のイメージがまだ固まっていない</li>
+                    <li>まずは小さく始めて、後から改善していきたい</li>
+                </ul>
+            </div>
+        </section>
+
+        <!--セクション : 特徴-->
+        <section class="lp-section">
+            <div class="lp-container">
+                <h2 class="lp-section-title">シンプルLPの特徴</h2>
+                <div class="lp-features">
+                    <div class="lp-feature-card">
+                        <h3>一枚に情報を整理</h3>
+                        <p>サービス紹介・メリット・流れ・お問い合わせを１ページに
+                        まとめ、スクロールするだけで全体が把握できます。</p>
+                    </div>
+                    <div class="lp-feature-card">
+                        <h3>スマホ対応</h3>
+                        <p>スマホからのアクセスを想定したレイアウトで、
+                        文字サイズや余白を最適化しています。</p>
+                    </div>
+                    <div class="lp-feature-card">
+                        <h3>あとから拡張しやすい</h3>
+                        <P>セクション構成がシンプルなので、実案件で使う際
+                        にもテキスト差し替えや追加がしやすい作りです。</P>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--セクション : 制作の流れ（練習用）-->
+        <section class="lp-section lp-section-alt">
+            <div class="lp-container">
+                <h2 class="lp-section-title">制作の流れ（サンプル）</h2>
+                <ol class="lp-steps">
+                    <li><span>01</span>ヒアリング（目的・ターゲット・
+                    載せたい情報の整理</li>
+                    <li><span>02</span>構成案とテキストのたたき台を作成</li>
+                    <li><span>03</span>デザイン＆コーディング</li>
+                    <li><span>04</span>最終確認・微調整</li>
+                </ol>
+            </div>
+        </section>
+
+        <!--セクション : お問い合わせ（このページ）-->
+        <section id="lp-contact" class="lp-section lp-contact">
+            <div class="lp-container">
+                <h2 class="lp-section-title">お問い合わせ（練習用セクション）</h2>
+                <p class="lp-section-text">
+                実際の案件では、ここにフォームやメールアドレス、SNS
+                のリンクなどを配置します。<br>
+                今回のポートフォリオ用の練習として、ポートフォリオの
+                Contactセクションへ誘導します。
+                </p>
+                <a href="index.html#contact" class="lp-btn lp-btn-primary">
+                ポートフォリオのContactへ戻る
+                </a>
+            </div>
+        </section>
+
+        <footer class="lp-footer">
+            <div class="lp-container">
+                <p>© 2025 Simple LP Practice</p>
+            </div>
+        </footer>
+    </body>
 </html>

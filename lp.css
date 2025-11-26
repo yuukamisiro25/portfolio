@@ -1,0 +1,220 @@
+/*全体*/
+
+body{
+    margin: 0;
+    font-family: system-ui, -apple-system, 
+    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #222;
+    background-color: #f7f7f7;
+}
+
+.lp-container{
+    width: min(100%, 960px);
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/*ヒーロー*/
+
+.lp-hero{
+    background: radial-gradient(circle at top, #ffffff 0,
+    #f0f4ff 40% , #e3ebff 100%);
+    padding: 80px 0 72px;
+    text-align: left;
+}
+
+.lp-tagline{
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 16px;
+}
+
+.lp-title{
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.3;
+    margin: 0 0 16px;
+}
+
+.lp-subtitle{
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 520px;
+    color: #555;
+    margin: 0 0 24px;
+}
+
+.lp-hero-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/*ボタン*/
+.lp-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, color 0.2 ease,
+    transform 0.1s ease, box-shadow 0.1s ease;
+    cursor: pointer;
+}
+
+.lp-btn-primary{
+    background-color: #111827;
+    color: #fff;
+    border-color: #111827;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.3);
+}
+
+.lp-btn-primary:hover{
+    background-color: #020617;
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
+}
+
+.lp-btn-ghost{
+    background-color: #ffffff;
+    color: #111827;
+    border-color: #d4d4d8;
+}
+
+.lp-btn-ghost:hover{
+    background-color: #f4f4f5;
+}
+
+/*セクション*/
+.lp-section{
+    padding: 64px 0;
+    background-color: #f7f7f7;
+}
+
+.lp-section-alt{
+    background-color: #ffffff;
+}
+
+.lp-section-title{
+    font-size: 22px;
+    margin: 0 0 16px;
+    text-align: center;
+}
+
+.lp-section-text{
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #555;
+}
+
+/*リスト（お悩み）*/
+.lp-list{
+    max-width: 520px;
+    margin: 16px auto 0;
+    padding-left: 1.4em;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/*特殊カード*/
+.lp-features{
+    display: grid;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.lp-features-card{
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px 20px 18px;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.lp-features-card h3{
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.lp-features-card p{
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/*制作の流れ*/
+.lp-steps{
+    list-style: none;
+    padding: 0;
+    margin: 24px auto 0;
+    max-width: 600px;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.lp-steps li{
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.lp-steps span{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background-color: #111827;
+    color: #fff;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+/*Contact セクション*/
+.lp-contact{
+    text-align: center;
+}
+
+.lp-contact .lp-btn-primary{
+    margin-top: 20px;
+}
+
+/*フッター*/
+.lp-footer{
+    padding: 24px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    background-color: #f4f4f5;
+}
+
+/*スマホ対応*/
+@media (max-width: 640px) {
+    .lp-hero{
+        padding: 56px 0 48px;
+    }
+
+    .lp-hero-actions{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .lp-features-card{
+        padding: 18px 16px 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    .lp-features{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
