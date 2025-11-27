@@ -80,6 +80,8 @@ header{
     top: 0;
     z-index: 10;
     background: linear-gradient(90deg, #1a1a1a, #333);
+    width: 100%;
+    left: 0;
 }
 
 /* メインの余白を増やす */
@@ -163,6 +165,14 @@ footer{
         gap: 10px;
     }
 }
+
+@media screen and (min-width: 1024px) {
+  body {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
 
 /* フェードイン効果 */
 .fade-in{
@@ -719,5 +729,306 @@ nav a:hover{
         opacity: 1;
         transform: scale(1);
     }
+}
+
+/* ===========================
+   修正：スマホ最適化
+=========================== */
+
+/* body の左右余白をスマホで縮小 */
+@media screen and (max-width: 768px) {
+  body {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+/* 画像サイズ固定の解除（常に画面に合わせる） */
+.hero-image img,
+.apple-hero-image img,
+.main-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* タイポ修正：pv → vw */
+.section-card {
+  width: min(900px, 92vw);
+}
+
+/* Hero画像カードの横幅もスマホ調整 */
+.hero-card {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Hero テキストが横に伸びすぎないよう調整 */
+.hero-text {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Apple Hero の過剰幅制御 */
+.apple-hero {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* ====================================
+   Global Reset（スマホ最適化）
+==================================== */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  overflow-x: hidden;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.7;
+  color: #111;
+}
+
+/* 画面幅によって余白を調整 */
+body {
+  padding: 0 16px;
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding: 0 40px;
+  }
+}
+
+/* ====================================
+   Container
+==================================== */
+.container {
+  max-width: 1080px;
+  margin: auto;
+}
+
+/* ====================================
+   Hero
+==================================== */
+.apple-hero {
+  padding: 80px 0 40px;
+  position: relative;
+}
+
+.hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Hero Text */
+.hero-text {
+  flex: 1;
+  max-width: 480px;
+}
+
+.hero-label {
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: #888;
+}
+
+.hero-title {
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 12px;
+}
+
+.hero-sub {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #444;
+}
+
+/* Buttons */
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.hero-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+}
+
+.hero-btn.primary {
+  background: #111;
+  color: #fff;
+}
+
+.hero-btn.secondary {
+  border: 1px solid #111;
+  color: #111;
+}
+
+/* Hero Visual Card */
+.hero-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-card {
+  width: 100%;
+  max-width: 340px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.hero-card-label {
+  font-size: 12px;
+  color: #888;
+}
+
+.hero-card-image img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.hero-card-title {
+  font-weight: 600;
+  margin-top: 14px;
+}
+
+.hero-card-text {
+  font-size: 14px;
+  margin: 6px 0 14px;
+  color: #555;
+}
+
+.hero-card-link {
+  font-size: 14px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Scroll guide */
+.hero-scroll {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ====================================
+   Sections
+==================================== */
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.section-text {
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Lists */
+.section-list {
+  max-width: 680px;
+  margin: auto;
+  list-style: none;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.section-list li {
+  padding: 8px 0;
+}
+
+/* ====================================
+   Works Cards
+==================================== */
+.works-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.works-card {
+  border: 1px solid #ddd;
+  padding: 24px;
+  border-radius: 16px;
+  background: #fff;
+  font-size: 15px;
+}
+
+.works-card a {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #111;
+}
+
+/* ====================================
+   Contact
+==================================== */
+.btn-contact {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 32px;
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* ====================================
+   Footer
+==================================== */
+.footer {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ====================================
+   Responsive Special
+==================================== */
+@media (max-width: 768px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+  }
+
+  .hero-text {
+    margin-bottom: 20px;
+  }
+
+  .hero-card {
+    max-width: 300px;
+  }
 }
 
