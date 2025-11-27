@@ -1,245 +1,193 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>Front-end Portfolio | 神代</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Front-end Portfolio | 神代</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Hero -->
-<header class="apple-hero">
+  <!-- Hero -->
+  <header class="apple-hero">
     <div class="hero-inner container">
-        <div class="hero-text">
-            <p class="hero-label">Front-end Developer</p>
-            <h1 class="hero-title fade-up">シンプルで、<br>伝えるデザインを。</h1>
-            <p class="hero-sub fade-up">
-                LP/ポートフォリオ/UI再現。<br>
-                コードとデザインで「伝えたい」を形にします。
-            </p>
-            <div class="hero-btns fade-up">
-                <a href="#works" class="hero-btn primary">Worksを見る</a>
-                <a href="#contact" class="hero-btn secondary">Contactへ</a>
-            </div>
+      <div class="hero-text">
+        <p class="hero-label">Front-end Developer</p>
+        <h1 class="hero-title">シンプルで、伝わるデザインを。</h1>
+        <p class="hero-sub">
+          LP制作・UI再現・レスポンシブ対応。<br>
+          あなたの「伝えたい」を、コードとデザインで形にします。
+        </p>
+        <div class="hero-btns">
+          <a href="#works" class="hero-btn primary">Worksを見る</a>
+          <a href="#contact" class="hero-btn secondary">Contactへ</a>
         </div>
+      </div>
 
-        <div class="hero-visual">
-    <div class="hero-card">
-        <p class="hero-card-label">Latest Work</p>
-
-        <div class="hero-card-image">
+      <div class="hero-visual">
+        <div class="hero-card">
+          <p class="hero-card-label">Latest Work</p>
+          <div class="hero-card-image">
             <img src="./works/hero.webp" alt="UNIQLO風 Hero セクション">
+          </div>
+          <p class="hero-card-title">UNIQLO Hero Clone</p>
+          <p class="hero-card-text">UI再現・タイポ・レスポンシブ対応</p>
+          <a href="./works/uniqlo-hero.html" class="hero-card-link" target="_blank">サイトを見る →</a>
         </div>
-
-        <p class="hero-card-title">UNIQLO Hero Clone</p>
-        <p class="hero-card-text">UI再現・タイポ・レスポンシブ対応</p>
-
-        <a href="./works/uniqlo-hero.html" class="hero-card-link" target="_blank">
-            サイトを見る →
-        </a>
+      </div>
     </div>
-</div>
+  </header>
 
-    </div>
-
-    <div class="hero-scroll">
-        <span class="hero-scroll-text">Scroll</span>
-        <span class="hero-scroll-line"></span>
-    </div>
-</header>
-
-<!-- Problem -->
-<section class="section lp-problem">
+  <!-- Problem / Pain Points -->
+  <section class="section section-problem">
     <div class="container">
-        <h2 class="section-title">こんなことでお困りではありませんか？</h2>
-        <ul class="section-list">
-            <li>LPを作りたいけど何から始めればいいかわからない</li>
-            <li>オシャレなサイトにしたいが時間がない</li>
-            <li>軽いサイト・スマホ対応ができる人に頼みたい</li>
-        </ul>
+      <h2 class="section-title">こんなことで悩んでいませんか？</h2>
+      <ul class="section-list">
+        <li>Webサイトを持ちたいけど、デザインやコーディングが難しい</li>
+        <li>既存サイトのデザインが古く見える／スマホで見にくい</li>
+        <li>費用を抑えて、軽くて見やすいサイトを作りたい</li>
+      </ul>
     </div>
-</section>
+  </section>
 
-<!-- Solution -->
-<section class="section lp-solution">
+  <!-- Solution / What I Offer -->
+  <section class="section section-solution">
     <div class="container">
-        <h2 class="section-title">私にできること</h2>
-        <p class="section-text">シンプルで伝わるデザインを、UI設計＋コーディングで制作します。</p>
+      <h2 class="section-title">私にできること</h2>
+      <p class="section-text">
+        HTML / CSS / JavaScript を用いて、  
+        「見やすさ」「軽さ」「レスポンシブ対応」を重視したサイトを制作します。<br>
+        ご希望・予算に応じたご提案も可能です。
+      </p>
     </div>
-</section>
+  </section>
 
-<!-- Features -->
-<section class="section lp-features">
+  <!-- Strengths -->
+  <section class="strengths" id="strengths">
     <div class="container">
-        <h2 class="section-title">制作のこだわり</h2>
-        <ul class="section-list">
-            <li>余白とリズムを大切にしたデザイン</li>
-            <li>高速で軽いWeb</li>
-            <li>スマホ完全対応</li>
-            <li>修正相談◎</li>
-        </ul>
+      <h2 class="section-title">強み / スキル</h2>
+      <div class="strength-list">
+        <div class="strength-item">
+          <h3>デザインと読みやすさを両立</h3>
+          <p>余白・タイポ・配色を意識し、誰が見ても直感的に分かるデザインを作ります。情報の優先順位を整理し、離脱率を下げるUIが得意です。</p>
+        </div>
+        <div class="strength-item">
+          <h3>レスポンシブ & モバイル最適化</h3>
+          <p>スマホ・タブレットでもレイアウトが崩れず、快適に閲覧できるサイトを構築します。軽量なコードで、表示速度も意識しています。</p>
+        </div>
+        <div class="strength-item">
+          <h3>柔軟な対応 & 速いレスポンス</h3>
+          <p>細かい修正やデザインの変更にも柔軟に対応。連絡・納期管理を丁寧に行い、安心してお任せいただけます。</p>
+        </div>
+        <div class="strength-item">
+          <h3>可読性の高いコード設計</h3>
+          <p>意味のあるクラス命名、モジュール構造、可変を意識したCSS設計。後からのメンテナンスや拡張にも強いサイトを提供します。</p>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<section id="strengths" class="strengths">
-    <h2>My Strengths</h2>
-    <div class="strength-list">
-        <div class="strength-item">
-            <h3>① 丁寧で見やすいデザイン</h3>
-            <p>余白・文字・色を徹底的に整え、読みやすい直感的な
-            デザインを作成します。ユーザーの「迷い」をなくすUIが得意
-            です。</p>
-        </div>
-
-        <div class="strength-item">
-            <h3>② スマホ最適化（レスポンシブ対応）</h3>
-            <p>スマホ・タブレットでも崩れないレイアウトを制作しま
-                す。シンプルで軽量なコードを書くことを重視しています。</p>
-        </div>
-
-        <div class="strength-item">
-            <h3>③ 迅速な対応とこまめな連絡</h3>
-            <p>短納期の依頼でもスピード対応。進捗報告を細かく行い、
-            安心して任せられる進行を心がけています。</p>
-        </div>
-
-        <div class="strength-item">
-            <h3>④ コードの綺麗さ（読みやすいHTML/CSS/JS）</h3>
-            <p>可読性の高いコードを心がけ、後から見てもわかりやすい
-            構造で制作します。修正や拡張がしやすいサイトを提供します。</p>
-        </div>
-    </div>
-</section>
-
-<!-- Works -->
-<section class="section works" id="works">
+  <!-- Works (Portfolio) -->
+  <section class="section works" id="works">
     <div class="container">
-        <h2 class="section-title">制作実績</h2>
-        <p class="section-text">
-        UI再現 / LP設計 / スマホ対応を得意としています。<br>
-        小さな修正から、1ページ制作まで幅広く対応します。
-        </p>
+      <h2 class="section-title">制作実績</h2>
+      <p class="section-text">
+        LP / サービス紹介ページ / UI再現など<br>
+        目的やご予算に応じたご提案が可能です。
+      </p>
 
+      <div class="works-list">
 
-       <div class="works-list">
-
-    <article class="works-card detail">
-        <div class="works-thumb">
+        <!-- Example Work ① -->
+        <article class="works-card detail">
+          <div class="works-thumb">
             <img src="iphone.png" alt="Apple風 Hero セクション">
-        </div>
-        <h3>Apple風 Heroセクション</h3>
-
-        <p class="works-desc">
-        ファーストビューで伝わる情報設計と余白設計を重視。<br>
-        スクロール誘導で、離脱率を抑えるヒーローセクションです。
-        </p>
-
-
-
-        <ul class="works-meta">
+          </div>
+          <h3>Apple風 Hero セクション</h3>
+          <p class="works-desc">
+            ファーストビューで伝わる情報配置と余白設計を重視。  
+            ブランド訴求型 LP に適した UI を実装。
+          </p>
+          <ul class="works-meta">
             <li><strong>技術:</strong> HTML / CSS / JavaScript</li>
-            <li><strong>制作期間:</strong> 1日</li>
-            <li><strong>対応:</strong> レスポンシブ / UI設計</li>
-        </ul>
+            <li><strong>内容:</strong> UI 実装 / レスポンシブ対応</li>
+            <li><strong>期間:</strong> 約 1 日</li>
+          </ul>
+          <a class="works-link disabled">このページです</a>
+        </article>
 
-        <a class="works-link disabled">このページです</a>
-    </article>
-
-    <article class="works-card detail">
-        <div class="works-thumb">
+        <!-- Example Work ② -->
+        <article class="works-card detail">
+          <div class="works-thumb">
             <img src="./works/hero.webp" alt="UNIQLO風 Hero 模写">
-        </div>
-        <h3>UNIQLO風 ヒーロー再現</h3>
-
-        <p class="works-desc">
-        公式サイトの印象を崩さずに、軽量で再現性の高いUIに設計。<br>
-        コストを抑えて「ブランドに寄せたデザイン」が可能です。
-        </p>
-
-
-        <ul class="works-meta">
+          </div>
+          <h3>UNIQLO風 Hero 模写</h3>
+          <p class="works-desc">
+            行間・比率・余白など UI を精密再現。  
+            軽量でクリーンなコード設計で、将来の修正コストも低減。
+          </p>
+          <ul class="works-meta">
             <li><strong>技術:</strong> HTML / CSS</li>
-            <li><strong>制作期間:</strong> 2日</li>
-            <li><strong>対応:</strong> レスポンシブ / 余白設計</li>
-        </ul>
+            <li><strong>内容:</strong> UI 再現 / レスポンシブ化</li>
+            <li><strong>期間:</strong> 約 2 日</li>
+          </ul>
+          <a href="./works/uniqlo-hero.html" target="_blank" class="works-link">サイトを見る →</a>
+        </article>
 
-        <a href="./works/uniqlo-hero.html" target="_blank" class="works-link">
-            サイトを見る →
-        </a>
-    </article>
+        <!-- Example Work ③ -->
+        <article class="works-card detail">
+          <div class="works-thumb">
+            <img src="OIP.webp" alt="シンプル LP サイト制作">
+          </div>
+          <h3>シンプル LP サイト制作</h3>
+          <p class="works-desc">
+            CTA 設計と導線設計を意識した、  
+            小規模ビジネス向けのコストを抑えた 1 ページ LP。
+          </p>
+          <ul class="works-meta">
+            <li><strong>技術:</strong> HTML / CSS</li>
+            <li><strong>内容:</strong> LP 設計 / レスポンシブ対応</li>
+            <li><strong>期間:</strong> 約 1 週間</li>
+          </ul>
+          <a href="your-lp.html" target="_blank" class="works-link">サイトを見る →</a>
+        </article>
 
-    <article class="works-card detail">
-        <div class="works-thumb">
-            <img src="OIP.webp" alt="シンプルLPサイト制作">
-        </div>
-        <h3>シンプルLPサイト制作</h3>
-
-        <p class="works-desc">
-        CTA（お問い合わせ）に繋がる導線を設計。<br>
-        小規模事業向けのコストを抑えたLP制作が可能です。
-        </p>
-
-        <ul class="works-meta">
-        <li><strong>制作期間:</strong> 1週間~2週間</li>
-        <li><strong>対応:</strong> スマホ最適化 / UI設計 / 修正相談</li>
-        </ul>
-
-
-        <a href="your-lp.html" target="_blank" class="works-link">
-            サイトを見る →
-        </a>
-    </article>
-</div>
-
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Profile -->
-<section class="section profile" id="profile">
+  <!-- Service & Price -->
+  <section class="section price" id="price">
     <div class="container">
-        <h2 class="section-title">プロフィール</h2>
-        <p class="section-text">
-            Web制作を学習中の神代です。UI再現とLP設計を中心に学んでいます。<br>
-            在宅で働けるフロントエンドエンジニアを目指して継続中です。
-        </p>
+      <h2 class="section-title">サービス内容・料金目安</h2>
+      <ul class="price-list">
+        <li><strong>1ページ LP 制作：</strong> 30,000円〜</li>
+        <li><strong>簡易サイト（~5ページまで）：</strong> 80,000円〜</li>
+        <li><strong>既存サイト修正・部分改修：</strong> 5,000円〜</li>
+      </ul>
+      <p class="section-text small">※ ご希望の内容によりお見積もりいたします。お気軽にご相談ください。</p>
     </div>
-</section>
+  </section>
 
-<!-- Price -->
-<section class="section lp-support">
-  <div class="container">
-    <h2 class="section-title">対応できること</h2>
-    <ul class="section-list">
-      <li>LP / サービス紹介ページ制作</li>
-      <li>スマホ最適化・UI改善</li>
-      <li>既存サイトの部分修正（最低5,000円〜）</li>
-      <li>HTML / CSS / JavaScript コーディング</li>
-    </ul>
-  </div>
-</section>
-
-
-<!-- Contact -->
-<section class="section contact" id="contact">
+  <!-- Contact -->
+  <section class="section contact" id="contact">
     <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-text">
-            Web制作のご相談やご依頼は<br>お気軽にご連絡ください。
-        </p>
-       <a class="btn-contact" href="mailto:yuukamisiro25@gmail.com">
-        まずは見積もり・相談（無料）をする →
-        </a>
-        <p class="contact-support">
-        料金目安 / 制作期間の相談もお気軽にどうぞ。
-        </p>
+      <h2 class="section-title">Contact</h2>
+      <p class="section-text">
+        Web制作のご相談やお見積もりは無料で承っております。<br>
+        内容が決まっていなくても大丈夫です。お気軽にご連絡ください。
+      </p>
+      <a class="btn-contact" href="mailto:yuukamisiro25@gmail.com">まずは無料相談 →</a>
+    </div>
+  </section>
 
-</section>
-
-<footer class="footer">
+  <footer class="footer">
     <p>&copy; 2025 Kamishiro Portfolio</p>
-</footer>
+  </footer>
 
-<script src="script.js"></script>
+  <!-- 固定問い合わせボタン（スマホ対応／常時表示） -->
+  <a href="mailto:yuukamisiro25@gmail.com" class="floating-contact">無料相談</a>
+
+  <script src="script.js"></script>
 </body>
 </html>
