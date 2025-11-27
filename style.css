@@ -257,125 +257,104 @@ nav a:hover{
     line-height: 1.6;
 }
 
-/* スマホ調整 */
+/*===================================*/
+/*  スマホ対応（〜768px）           */
+/*===================================*/
 @media screen and (max-width: 768px) {
-    /*ヒーロー全体のコンテナ*/
-    .hero{
+
+    /* ヒーロー全体 */
+    .hero {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 40px 16px;
-        padding-top: 72px;
+        padding: 60px 16px 40px;
+        padding-top: 80px;
     }
 
-    .apple-hero{
-        padding: 80px 20px;
-        text-align: left;
-    }
-
-    .apple-hero-title{
-        font-size: 36px;
-        line-height: 1.2;
-    }
-    .apple-hero-sub{
-        font-size: 18px;
-        margin-top: 20px;
-        max-width: 300px;
-    }
-
-    .apple-hero-btns{
-        flex-direction: column;
-        gap: 16px;
-        margin-top: 24px;
-    }
-
-    .apple-hero-image{
-        width: 100%;
-        transform: translateY(0);
-        margin-top: 40px;
-    }
-
-    .hero-inner{
+    .hero-inner {
         flex-direction: column;
         gap: 32px;
+        max-width: 100%;
         text-align: center;
     }
 
-    /*テキスト側*/
-    .hero-text{
+    /* テキスト側 */
+    .hero-text {
         max-width: 100%;
-        margin-bottom: 24px;
+        margin-bottom: 16px;
         order: 1;
     }
 
-    .hero-text h1{
-        font-size: 2.5rem;
+    .hero-text h1,
+    .hero-title {
+        font-size: 28px;
+        line-height: 1.3;
     }
 
-    .hero-text p{
-        font-size: 1.2rem;
+    .hero-text p,
+    .hero-subtitle {
+        font-size: 16px;
+        line-height: 1.6;
     }
 
-    .hero-title{
-        font-size: 24px;
-        line-height: 1.4;
-    }
-    .hero-subtitle{
-        font-size: 14px;
-    }
-
-    /*画像側*/
-    .hero-image{
-        width: 100%;
-        max-width: 360px;
-    }
-
-    .hero-image img{
-        width: 280px;
-    }
-
-    .hero-visual{
-        order: 2;
-    }
-
-    .hero-buttons{
+    /* ボタン */
+    .hero-buttons,
+    .apple-hero-btns {
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 24px;
         justify-content: center;
     }
-    
-    .works{
+    .hero-buttons a,
+    .apple-hero-btns a {
+        width: 100%;
+        max-width: 240px;
+        margin: 0 auto;
+    }
+
+    /* 画像側 */
+    .hero-image,
+    .hero-visual,
+    .apple-hero-image {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+        order: 2;
+    }
+    .hero-image img,
+    .apple-hero-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Apple風セクション調整 */
+    .apple-hero {
+        padding: 60px 16px;
+        text-align: center;
+    }
+    .apple-hero-title {
+        font-size: 32px;
+        line-height: 1.3;
+    }
+    .apple-hero-sub {
+        font-size: 16px;
+        max-width: 300px;
+        margin: 16px auto 0;
+    }
+
+    /* 作品セクション */
+    .works {
         padding: 60px 10px;
     }
-
-    .works-list{
+    .works-list {
         flex-direction: column;
+        gap: 32px;
         align-items: center;
     }
-
-    .works-card{
+    .works-card {
         width: 95%;
+        max-width: 360px;
     }
-
-    /* === hero-card（スマホ対応）=== */
-.hero-card {
-    width: 90vw;
-    max-width: 340px;
-    padding: 16px;
-    border-radius: 16px;
-    margin-top: 20px;
-}
-
-.hero-card-label {
-    font-size: 12px;
-}
-
-.hero-card-title {
-    font-size: 1.1rem;
-}
-
-.hero-card-text {
-    font-size: 0.9rem;
-}
-
 }
 
 .contact{
