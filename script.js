@@ -1,75 +1,43 @@
-// ボタン要素を取得
-const button = document.querySelector('.btn');
+/* ================================
+   Fade-Up Animation on Scroll
+================================ */
+const fadeUps = document.querySelectorAll('.fade-up');
 
-// ボタンが見つかったら、クリックイベントを設定
-if(button){
-    button.addEventListener('click',function(){
-        alert('ボタンがクリックされました!');
-    });
-}
-
-//テキストを書き換える処理
-const description = 
-document.getElementById('description');
-
-if(button && description){
-    button.addEventListener('click',function(){
-        description.textContent = 'ボタンがクリックされて、説明文が変更されました!'
-    });
-}
-
-// ページ読み込み後にフェードイン
-window.addEventListener('load',function(){
-    const main = document.querySelector('main');
-    if(main){
-        main.classList.add('show');
-    }
-});
-
-// ナビのリンクをスムーズスクロールさせる
-const navLinks = document.querySelectorAll('a[href^="#"]');
-
-navLinks.forEach(link => {
-    link.addEventListener('click', function(e){
-        e.preventDefault(); // ガクッと飛ぶ動作を無効化
-        const targetId = this.getAttribute('href'); // "#profile" など
-        const targetElement = document.querySelector(targetId);
-
-        if(targetElement){
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+const showOnScroll = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
         }
     });
+}, {
+    threshold: 0.2
 });
 
-const hero = document.querySelector('.apple-hero');
+fadeUps.forEach(el => showOnScroll.observe(el));
 
-window.addEventListener('scroll',() => {
-    const scrollY = window.scrollY;
-    const fadePoint = 1500;//どれくらいスクロールしたら薄くなるか
 
-    const opacity = Math.max(1 - scrollY / fadePoint,0);
-    hero.style.opacity = opacity;
-});
+/* ================================
+   Smooth Scroll for Anchor Links
+================================ */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
 
-// Apple風 Heroのフェードイン
-document.addEventListener('DOMContentLoaded', () =>{
-    const hero = document.querySelector('.hero');
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
 
-    if(!hero) return;
-
-    //ページ読み込み時に一瞬遅らせてクラスを付ける
-    setTimeout(() => {
-        hero.classList.add('is-visible');
-    }, 200);
-
-    const fadeEls = document.querySelectorAll('.fade-up');
-
-    fadeEls.forEach((el, i) => {
-        setTimeout(() => {
-            el.classList.add('show');
-        }, 200 * i);
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
+});
+
+
+/* ================================
+   Hero Fade-In on Load
+================================ */
+window.addEventListener('load', () => {
+    const hero = document.querySelector('.top-hero');
+    if (hero) {
+        hero.style.opacity = 1;
+        hero.style.transform = "translateY(0)";
+    }
 });

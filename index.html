@@ -2,169 +2,152 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>初めてのWebページ</title>
+    <title>Front-end Portfolio | 神代</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="hero">
-        <div class="hero-inner">
-            <div class="hero-text">
-                <p class="hero-label">Front-end Developer</p>
-                <h1 class="apple-hero-title fade-up">
-                    シンプルで、<br>
-                    伝えるデザインを。
-                </h1>
-                <p class="apple-hero-sub fade-up">
-                    小さなLPからポートフォリオまで。<br>
-                    コードとデザインで、あなたの「伝えたい」を形にします。
-                </p>
-                <div class="apple-hero-btns fade-up">
-                    <a href="#works" class="hero-btn primary">Worksを見る</a>
-                    <a href="#contact" class="hero-btn secondary">Contactへ</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-card">
-                    <p class="hero-card-label">Latest Work</p>
-                    <p class="hero-card-title">UNIQLO Hero Clone</p>
-                    <p class="hero-card-text">UI再現とレスポンシブ対応。</p>
-                </div>
+
+<!-- Hero -->
+<header class="apple-hero">
+    <div class="hero-inner container">
+        <div class="hero-text">
+            <p class="hero-label">Front-end Developer</p>
+            <h1 class="hero-title fade-up">シンプルで、<br>伝えるデザインを。</h1>
+            <p class="hero-sub fade-up">
+                LP/ポートフォリオ/UI再現。<br>
+                コードとデザインで「伝えたい」を形にします。
+            </p>
+            <div class="hero-btns fade-up">
+                <a href="#works" class="hero-btn primary">Worksを見る</a>
+                <a href="#contact" class="hero-btn secondary">Contactへ</a>
             </div>
         </div>
 
-        <div class="hero-scroll">
-            <span class="hero-scroll-text">Scroll</span>
-            <span class="hero-scroll-line"></span>
+        <div class="hero-visual">
+    <div class="hero-card">
+        <p class="hero-card-label">Latest Work</p>
+
+        <div class="hero-card-image">
+            <img src="./works/hero.webp" alt="UNIQLO風 Hero セクション">
         </div>
-    </header>
 
-    <section class="lp-problem">
-    <h2>こんなことでお困りではありませんか？</h2>
-    <ul>
-        <li>LPを作りたいけど何から始めればいいかわからない。</li>
-        <li>サイトをオシャレにしたいが時間がない。</li>
-        <li>スマホ対応や軽いサイトにしたい。</li>
-    </ul>
-    </section>
+        <p class="hero-card-title">UNIQLO Hero Clone</p>
+        <p class="hero-card-text">UI再現・タイポ・レスポンシブ対応</p>
 
-    <section class="lp-solution">
-        <h2>私にできること</h2>
-        <p>シンプルで伝わるデザインを、コードとUI設計で形にします。</p>
-    </section>
+        <a href="./works/uniqlo-hero.html" class="hero-card-link" target="_blank">
+            サイトを見る →
+        </a>
+    </div>
+</div>
 
-    <section class="lp-features">
-        <h2>制作のこだわり</h2>
-        <ul>
+    </div>
+
+    <div class="hero-scroll">
+        <span class="hero-scroll-text">Scroll</span>
+        <span class="hero-scroll-line"></span>
+    </div>
+</header>
+
+<!-- Problem -->
+<section class="section lp-problem">
+    <div class="container">
+        <h2 class="section-title">こんなことでお困りではありませんか？</h2>
+        <ul class="section-list">
+            <li>LPを作りたいけど何から始めればいいかわからない</li>
+            <li>オシャレなサイトにしたいが時間がない</li>
+            <li>軽いサイト・スマホ対応ができる人に頼みたい</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Solution -->
+<section class="section lp-solution">
+    <div class="container">
+        <h2 class="section-title">私にできること</h2>
+        <p class="section-text">シンプルで伝わるデザインを、UI設計＋コーディングで制作します。</p>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="section lp-features">
+    <div class="container">
+        <h2 class="section-title">制作のこだわり</h2>
+        <ul class="section-list">
             <li>余白とリズムを大切にしたデザイン</li>
             <li>高速で軽いWeb</li>
             <li>スマホ完全対応</li>
-            <li>修正対応◎</li>
+            <li>修正相談◎</li>
         </ul>
-    </section>
+    </div>
+</section>
 
-    <section class="lp-price">
-        <h2>料金の目安</h2>
-        <p>LP制作 : 30,000円～</p>
-        <p>サイト修正 : 5,000円～</p>
-    </section>
+<!-- Works -->
+<section class="section works" id="works">
+    <div class="container">
+        <h2 class="section-title">制作実績（練習）</h2>
+        <p class="section-text">学習のために制作したWebページです。</p>
 
-    <section class="apple-hero">
-        <div class="hero-text">
-            <h1>>iPhone 16 Pro</h1>
-            <p>さらに一歩先へ。</p>
-        </div>
+        <div class="works-list">
+            <article class="works-card">
+                <h3>Apple風 Heroセクション</h3>
+                <p>オリジナル構成＋フェードイン演出。</p>
+                <p>技術: HTML / CSS / JavaScript</p>
+                <p>現在ご覧いただいているこのページです。</p>
+            </article>
 
-        <div class="hero-image">
-            <img src="iphone.png" alt="iPhone">
-        </div>
-    </section>
+            <article class="works-card">
+                <h3>UNIQLO風ヒーローセクション模写</h3>
+                <p>行間/余白/比率/タイポすべて再現。</p>
+                <p>技術: HTML / CSS / Responsive</p>
+                <a href="./works/uniqlo-hero.html" target="_blank">サイトを見る →</a>
+            </article>
 
-    <main class="fade-in">
-        <p id="description">ここにサイトの説明文が入ります。</p>
-        <img src="mini.png" alt="説明画像" class="main-image" />
-        <button class="btn">詳しく見る</button>
-
-        <section class="profile section-card" id="profile">
-            <div class="container">
-            <h2>プロフィール</h2>
-            <p>こんにちは! Web制作を学習中の神代です。</p>
-            <p>UNIQLOサイトのHero模写など、UI再現の練習を行っています。</p>
-            <p>日々学んだことを積み上げて、在宅で働けるエンジニアを目指しています。</p>
-            </div>
-        </section>
-
-        <section class="skills section-card" id="skills">
-            <div class="container">
-            <h2>スキル</h2>
-            <ul>
-                <li>HTML : 1ページLP/ポートフォリオのコーディングが可能</li>
-                <li>CSS : 余白・タイポグラフィを意識したデザイン調整、レスポンシブ対応</li>
-                <li>JavaScript : フェードインなどの簡単なアニメーション実装(Heroセクションで使用)</li>
-                <li>今後 : 小規模LPのゼロからの制作を安定して受けられるように継続学習中</li>
-                </div>
-            </ul>
-        </section>
-
-        <section class="works section-card" id="works">
-            <div class="container">
-            <h2>制作実績（練習中）</h2>
-            <p>これまでに作成・練習したWebページの一覧です。</p>
-
-            <div class="works-list">
-                <article class="works-card">
-                    <h3>Apple風 Heroセクション</h3>
-                    <p>Apple公式サイトの構成を参考にしつつ<br>
-                    オリジナルのHeroセレクションを再現しました。<br>
-                    CSSアニメーションとJavaScriptでフェードイン演出を実装しています。<br>
-                    現在ご覧いただいているこのページです。<br>
-                    ・制作期間 : １日<br>
-                    ・技術 : HTML/CSS/JavaScript
-
-                    </p>
-                </article>
-                
-                <article class="works-card">
-                    <li>
-                        <h3>UNIQLO風ヒーローセクション模写</h3>
-                    <a href="./works/uniqlo-hero.html" target="_blank">サイトを見る</a>
-                        <p>・レイアウト、余白、タイポグラフィ、レスポンシブ対応を中心に再現<br>
-                           ・PC/SP両対応<br>
-                           ・行間・字間の最適化、画像比率調整など細部まで仕上げ<br>
-                           ・制作期間 : ２日<br>
-                           ・技術 : HTML/CSS
-                        </p>
-                    </li>
-                </article>
-            </div>
-
-            <div class="works-item">
+            <article class="works-card">
                 <h3>シンプルLPサイト</h3>
                 <p>HTML/CSSで作った1ページです。</p>
-                <a href="your-lp.html"
-                target="_blank">サイトを見る</a>
-            </div>
-            </div>
-        </section>
-
-        <section class="contact section-card" id="contact">
-            <div class="container">
-            <h2>Contact</h2>
-            <p>
-                Web制作のご相談やお仕事のご依頼は、<br>
-                下記のボタンからお気軽にご連絡ください。<br>
-                「まずは相談だけ」でもお気軽にご連絡ください。
-            </p>
-        <a class="btncontact-btn" href="mailto:yuukamisiro25@gmail.com">
-            メールで問い合わせる
-        </a>
+                <p>技術: HTML / CSS </p>
+                <a href="your-lp.html" target="_blank">サイトを見る →</a>
+            </article>
         </div>
-        </section>
-    </main>
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2025 My Website</p>
-    </footer>
+<!-- Profile -->
+<section class="section profile" id="profile">
+    <div class="container">
+        <h2 class="section-title">プロフィール</h2>
+        <p class="section-text">
+            Web制作を学習中の神代です。UI再現とLP設計を中心に学んでいます。<br>
+            在宅で働けるフロントエンドエンジニアを目指して継続中です。
+        </p>
+    </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- Price -->
+<section class="section lp-price">
+    <div class="container">
+        <h2 class="section-title">料金の目安</h2>
+        <p class="section-text">LP制作: 30,000円〜</p>
+        <p class="section-text">サイト修正: 5,000円〜</p>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+    <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-text">
+            Web制作のご相談やご依頼は<br>お気軽にご連絡ください。
+        </p>
+        <a class="btn-contact" href="mailto:yuukamisiro25@gmail.com">メールで問い合わせる</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2025 Kamishiro Portfolio</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
