@@ -354,6 +354,28 @@ nav a:hover{
     .works-card{
         width: 95%;
     }
+
+    /* === hero-card（スマホ対応）=== */
+.hero-card {
+    width: 90vw;
+    max-width: 340px;
+    padding: 16px;
+    border-radius: 16px;
+    margin-top: 20px;
+}
+
+.hero-card-label {
+    font-size: 12px;
+}
+
+.hero-card-title {
+    font-size: 1.1rem;
+}
+
+.hero-card-text {
+    font-size: 0.9rem;
+}
+
 }
 
 .contact{
