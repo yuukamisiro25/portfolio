@@ -5,30 +5,51 @@
   <title>Front-end Portfolio | 神代</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ================================
+       Apple風 Fade-Up（CSS）
+    ================================ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      filter: blur(6px);
+      transition:
+        opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  </style>
 </head>
 <body>
 
   <!-- Hero -->
-  <header class="apple-hero">
-    <div class="hero-inner container">
-      <div class="hero-text">
+  <header class="apple-hero fade-up">
+    <div class="hero-inner container fade-up">
+      <div class="hero-text fade-up">
         <p class="hero-label">Front-end Developer</p>
         <h1 class="hero-title">シンプルで、伝わるデザインを。</h1>
         <p class="hero-sub">
           LP制作・UI再現・レスポンシブ対応。<br>
           あなたの「伝えたい」を、コードとデザインで形にします。
         </p>
-        <div class="hero-btns">
+        <div class="hero-btns fade-up">
           <a href="#works" class="hero-btn primary">Worksを見る</a>
           <a href="#contact" class="hero-btn secondary">Contactへ</a>
         </div>
       </div>
 
-      <div class="hero-visual">
+      <div class="hero-visual fade-up">
         <div class="hero-card">
           <p class="hero-card-label">Latest Work</p>
           <div class="hero-card-image">
-            <img src="./works/hero.webp" alt="UNIQLO風 Hero セクション">
+            <img src="hero.jpg" alt="UNIQLO風 Hero セクション">
           </div>
           <p class="hero-card-title">UNIQLO Hero Clone</p>
           <p class="hero-card-text">UI再現・タイポ・レスポンシブ対応</p>
@@ -38,8 +59,8 @@
     </div>
   </header>
 
-  <!-- Problem / Pain Points -->
-  <section class="section section-problem">
+  <!-- Problem -->
+  <section class="section section-problem fade-up">
     <div class="container">
       <h2 class="section-title">こんなことで悩んでいませんか？</h2>
       <ul class="section-list">
@@ -50,8 +71,8 @@
     </div>
   </section>
 
-  <!-- Solution / What I Offer -->
-  <section class="section section-solution">
+  <!-- Solution -->
+  <section class="section section-solution fade-up">
     <div class="container">
       <h2 class="section-title">私にできること</h2>
       <p class="section-text">
@@ -63,32 +84,32 @@
   </section>
 
   <!-- Strengths -->
-  <section class="strengths" id="strengths">
+  <section class="strengths fade-up" id="strengths">
     <div class="container">
       <h2 class="section-title">強み / スキル</h2>
       <div class="strength-list">
-        <div class="strength-item">
+        <div class="strength-item fade-up">
           <h3>デザインと読みやすさを両立</h3>
-          <p>余白・タイポ・配色を意識し、誰が見ても直感的に分かるデザインを作ります。情報の優先順位を整理し、離脱率を下げるUIが得意です。</p>
+          <p>余白・タイポ・配色を意識し、誰が見ても直感的に分かるデザインを作ります。</p>
         </div>
-        <div class="strength-item">
+        <div class="strength-item fade-up">
           <h3>レスポンシブ & モバイル最適化</h3>
-          <p>スマホ・タブレットでもレイアウトが崩れず、快適に閲覧できるサイトを構築します。軽量なコードで、表示速度も意識しています。</p>
+          <p>スマホ・タブレットでもレイアウトが崩れず、快適に閲覧できるサイトを構築します。</p>
         </div>
-        <div class="strength-item">
+        <div class="strength-item fade-up">
           <h3>柔軟な対応 & 速いレスポンス</h3>
-          <p>細かい修正やデザインの変更にも柔軟に対応。連絡・納期管理を丁寧に行い、安心してお任せいただけます。</p>
+          <p>細かい修正やデザインの変更にも柔軟に対応。連絡・納期管理を丁寧に行います。</p>
         </div>
-        <div class="strength-item">
+        <div class="strength-item fade-up">
           <h3>可読性の高いコード設計</h3>
-          <p>意味のあるクラス命名、モジュール構造、可変を意識したCSS設計。後からのメンテナンスや拡張にも強いサイトを提供します。</p>
+          <p>意味のあるクラス命名、モジュール構造。メンテしやすいコードを書きます。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Works (Portfolio) -->
-  <section class="section works" id="works">
+  <!-- Works -->
+  <section class="section works fade-up" id="works">
     <div class="container">
       <h2 class="section-title">制作実績</h2>
       <p class="section-text">
@@ -98,33 +119,29 @@
 
       <div class="works-list">
 
-        <!-- Example Work ① -->
-        <article class="works-card detail">
+        <article class="works-card detail fade-up">
           <div class="works-thumb">
-            <img src="iphone.png" alt="Apple風 Hero セクション">
+            <img src="./works/R.jpg" alt="@Home Web制作サービス">
           </div>
-          <h3>Apple風 Hero セクション</h3>
+          <h3>@Home Web制作サービス</h3>
           <p class="works-desc">
-            ファーストビューで伝わる情報配置と余白設計を重視。  
-            ブランド訴求型 LP に適した UI を実装。
+            ファーストビューで伝わる情報配置と余白設計を重視。
           </p>
           <ul class="works-meta">
-            <li><strong>技術:</strong> HTML / CSS / JavaScript</li>
+            <li><strong>技術:</strong> HTML / CSS </li>
             <li><strong>内容:</strong> UI 実装 / レスポンシブ対応</li>
             <li><strong>期間:</strong> 約 1 日</li>
           </ul>
-          <a class="works-link disabled">このページです</a>
+         <a href="athome.html" target="_blank" class="works-link">サイトを見る →</a>
         </article>
 
-        <!-- Example Work ② -->
-        <article class="works-card detail">
+        <article class="works-card detail fade-up">
           <div class="works-thumb">
-            <img src="./works/hero.webp" alt="UNIQLO風 Hero 模写">
+            <img src="hero.jpg" alt="UNIQLO風 Hero 模写">
           </div>
           <h3>UNIQLO風 Hero 模写</h3>
           <p class="works-desc">
-            行間・比率・余白など UI を精密再現。  
-            軽量でクリーンなコード設計で、将来の修正コストも低減。
+            行間・比率・余白まで UI を精密再現。
           </p>
           <ul class="works-meta">
             <li><strong>技術:</strong> HTML / CSS</li>
@@ -134,20 +151,18 @@
           <a href="./works/uniqlo-hero.html" target="_blank" class="works-link">サイトを見る →</a>
         </article>
 
-        <!-- Example Work ③ -->
-        <article class="works-card detail">
+        <article class="works-card detail fade-up">
           <div class="works-thumb">
             <img src="OIP.webp" alt="シンプル LP サイト制作">
           </div>
           <h3>シンプル LP サイト制作</h3>
           <p class="works-desc">
-            CTA 設計と導線設計を意識した、  
-            小規模ビジネス向けのコストを抑えた 1 ページ LP。
+            CTA設計と導線最適化を重視した 1 ページ LP。
           </p>
           <ul class="works-meta">
             <li><strong>技術:</strong> HTML / CSS</li>
             <li><strong>内容:</strong> LP 設計 / レスポンシブ対応</li>
-            <li><strong>期間:</strong> 約 1 週間</li>
+            <li><strong>期間:</strong> 約 1 日</li>
           </ul>
           <a href="your-lp.html" target="_blank" class="works-link">サイトを見る →</a>
         </article>
@@ -156,8 +171,8 @@
     </div>
   </section>
 
-  <!-- Service & Price -->
-  <section class="section price" id="price">
+  <!-- Price -->
+  <section class="section price fade-up" id="price">
     <div class="container">
       <h2 class="section-title">サービス内容・料金目安</h2>
       <ul class="price-list">
@@ -165,29 +180,54 @@
         <li><strong>簡易サイト（~5ページまで）：</strong> 80,000円〜</li>
         <li><strong>既存サイト修正・部分改修：</strong> 5,000円〜</li>
       </ul>
-      <p class="section-text small">※ ご希望の内容によりお見積もりいたします。お気軽にご相談ください。</p>
+      <p class="section-text small">※ 内容に応じてお見積りいたします。</p>
     </div>
   </section>
 
   <!-- Contact -->
-  <section class="section contact" id="contact">
+  <section class="section contact fade-up" id="contact">
     <div class="container">
       <h2 class="section-title">Contact</h2>
       <p class="section-text">
-        Web制作のご相談やお見積もりは無料で承っております。<br>
-        内容が決まっていなくても大丈夫です。お気軽にご連絡ください。
+        Web制作のご相談・お見積もりは無料です。<br>
+        内容が決まっていなくてもお気軽にどうぞ。
       </p>
       <a class="btn-contact" href="mailto:yuukamisiro25@gmail.com">まずは無料相談 →</a>
     </div>
   </section>
 
-  <footer class="footer">
+  <footer class="footer fade-up">
     <p>&copy; 2025 Kamishiro Portfolio</p>
   </footer>
 
-  <!-- 固定問い合わせボタン（スマホ対応／常時表示） -->
   <a href="mailto:yuukamisiro25@gmail.com" class="floating-contact">無料相談</a>
 
-  <script src="script.js"></script>
+  <!-- ============================
+       Apple風 Fade-Up Animation JS
+  ============================ -->
+  <script>
+    const fadeUps = document.querySelectorAll('.fade-up');
+
+    const showOnScroll = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+
+          const index = [...fadeUps].indexOf(el);
+          el.style.transitionDelay = `${index * 0.10}s`;
+
+          el.classList.add('show');
+
+          showOnScroll.unobserve(el);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: "0px 0px -10% 0px"
+    });
+
+    fadeUps.forEach(el => showOnScroll.observe(el));
+  </script>
+
 </body>
 </html>

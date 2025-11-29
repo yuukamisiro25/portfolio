@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>@Home Web制作サービス｜小さなお店・個人事業主のための丁寧なWebサイト制作</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* ------------------------------
+            Reset & Base
+        ------------------------------ */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Noto Sans JP", sans-serif;
+            line-height: 1.75;
+            background: #ffffff;
+            color: #1e293b;
+            padding-top: 70px;
+        }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        /* ------------------------------
+            Fade-in animation
+        ------------------------------ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ------------------------------
+            Header
+        ------------------------------ */
+        .site-header {
+            position: fixed; top: 0; left: 0;
+            width: 100%; z-index: 999;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 20px; font-weight: 700; color: #0ea5e9; }
+        .nav-list { list-style: none; display: flex; gap: 24px; }
+        .nav-list a { font-size: 15px; padding-bottom: 4px; font-weight: 600; transition: .2s; }
+        .nav-list a:hover { opacity: 0.6; }
+
+        /* ------------------------------
+            Hero
+        ------------------------------ */
+        .hero {
+            min-height: 75vh;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(circle at top, #e0f7ff, #ffffff);
+        }
+        .hero-title { font-size: 32px; font-weight: 800; margin-bottom: 20px; color: #0f172a; }
+        .hero-text { font-size: 17px; color: #475569; margin-bottom: 32px; }
+        .btn {
+            display: inline-block;
+            background: #0ea5e9;
+            padding: 14px 28px;
+            border-radius: 50px;
+            color: #fff; font-size: 18px; font-weight: 700;
+            transition: .2s;
+        }
+        .btn:hover { background: #0284c7; }
+
+        /* ------------------------------
+            Section basics
+        ------------------------------ */
+        section { padding: 80px 20px; }
+        .inner { max-width: 1000px; margin: 0 auto; }
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .section-lead {
+            text-align: center;
+            color: #475569;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        /* ------------------------------
+            Service
+        ------------------------------ */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .service-card {
+            padding: 28px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            transition: 0.2s;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        /* ------------------------------
+            Timeline (作業手順)
+        ------------------------------ */
+        #flow {
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: #e2e8f0;
+            border-radius: 4px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all .6s ease-out;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2px;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            background: #0ea5e9;
+            border-radius: 50%;
+        }
+
+        .timeline-card {
+            background: #f8fafc;
+            padding: 20px 24px;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+            transform: translateX(20px);
+            transition: .5s;
+        }
+
+        .timeline-item.visible .timeline-card {
+            transform: translateX(0);
+        }
+
+        /* ------------------------------
+            Works
+        ------------------------------ */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .work-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .work-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+        }
+        .image-wrapper img { transition: transform 0.4s ease-out; }
+        .work-card:hover img { transform: scale(1.06); }
+        .content { padding: 16px; flex: 1; }
+        .works-link {
+            margin: 16px;
+            font-weight: 700;
+            color: #0ea5e9;
+        }
+
+        /* ------------------------------
+            Price
+        ------------------------------ */
+        .price-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .price-card {
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: 0.2s;
+        }
+        .price-card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+        .price-val {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #0ea5e9;
+        }
+
+        /* ------------------------------ */
+        .faq-item {
+            background: #f8fafc;
+            padding: 20px 24px;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            margin-bottom: 16px;
+        }
+
+        /* ------------------------------ */
+        .contact-check { background: #f1f5f9; }
+        .check-list {
+            list-style: none;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .check-list li {
+            background: #ffffff;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 12px;
+            display: flex; gap: 10px; align-items: center;
+        }
+        .check-list li::before {
+            content: "✔";
+            color: #0ea5e9; font-weight: 700;
+        }
+
+        /* ------------------------------ */
+        .contact-form {
+            max-width: 650px;
+            margin: 0 auto;
+            display: flex; flex-direction: column; gap: 22px;
+        }
+        .form-group label {
+            font-size: 15px; font-weight: 600;
+            margin-bottom: 6px; display: block;
+        }
+        .form-group label span { color: #e11d48; margin-left: 4px; }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            background: #f8fafc;
+        }
+        .form-submit-btn {
+            background: #0ea5e9;
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+        }
+
+        .site-footer {
+            margin-top: 60px;
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 24px;
+            font-size: 14px;
+        }
+
+        /* ------------------------------ */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 26px; }
+            .btn { width: 100%; }
+            .timeline { padding-left: 28px; }
+            .timeline-card { transform: translateX(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header fade-in">
+    <div class="header-inner">
+        <h1 class="logo">@Home Web制作サービス</h1>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#service">サービス</a></li>
+                <li><a href="#flow">手順</a></li>
+                <li><a href="#works">実績</a></li>
+                <li><a href="#price">料金</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero fade-in">
+    <div>
+        <h2 class="hero-title">小さなお店・個人事業主のための<br>“伝わる”Webサイトを制作します。</h2>
+        <p class="hero-text">
+            丁寧なヒアリングと分かりやすい提案で、あなたのビジネスに寄り添ったサイトを作ります。
+        </p>
+        <a href="#contact" class="btn">無料相談はこちら</a>
+    </div>
+</section>
+
+<!-- SERVICE -->
+<section id="service" class="fade-in">
+    <div class="inner">
+        <h2 class="section-title">サービス内容</h2>
+        <p class="section-lead">必要なものを、必要なだけ、シンプルに。</p>
+
+        <div class="service-grid">
+            <div class="service-card fade-in">
+                <h3>シンプルWebサイト制作</h3>
+                <p>名刺代わりのホームページを、素早く・丁寧に制作します。</p>
+            </div>
+            <div class="service-card fade-in">
+                <h3>LP制作</h3>
+                <p>伝わる導線設計で、成果につながる着地ページを制作します。</p>
+            </div>
+            <div class="service-card fade-in">
+                <h3>サイトリニューアル</h3>
+                <p>古いデザインの改善、文章整理など柔軟に対応します。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FLOW（作業手順） -->
+<section id="flow" class="fade-in">
+    <div class="inner">
+        <h2 class="section-title">制作の流れ</h2>
+        <p class="section-lead">お問い合わせ後は、以下の手順で進めていきます。</p>
+
+        <div class="timeline">
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <h3>STEP1｜無料相談（お問い合わせ）</h3>
+                    <p>まずはフォームまたはDMからご相談ください。目的・納期・予算を簡単にヒアリングします。</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <h3>STEP2｜設計・お見積り</h3>
+                    <p>ご要望をもとに、最適なページ構成・デザイン案・お見積りを明確に提示します。</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <h3>STEP3｜デザイン制作・実装</h3>
+                    <p>ヒアリング内容からデザイン制作→実装へ。修正対応も丁寧に行います。</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <h3>STEP4｜納品・公開サポート</h3>
+                    <p>整合性チェック後に納品。公開作業もサポートし、公開後の微調整も可能です。</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- WORKS -->
+<section id="works" class="fade-in">
+    <div class="inner">
+        <h2 class="section-title">制作実績</h2>
+        <p class="section-lead">デザインと使いやすさにこだわっています。</p>
+
+        <div class="works-grid">
+            <div class="work-card fade-in">
+                <div class="image-wrapper">
+                    <img loading="lazy" src="hero.jpg" alt="UNIQLO風のHeroセクション模写">
+                </div>
+                <div class="content">
+                    <h3>UNIQLO模写</h3>
+                    <p>柔らかな雰囲気で温かさを伝えるデザイン。</p>
+                </div>
+                <a href="./works/uniqlo-hero.html" target="_blank" class="works-link">サイトを見る →</a>
+            </div>
+
+            <div class="work-card fade-in">
+                <div class="image-wrapper">
+                    <img loading="lazy" src="OIP.webp" alt="シンプルなLP制作">
+                </div>
+                <div class="content">
+                    <h3>シンプルLP</h3>
+                    <p>信頼感と清潔感を重視した構成。</p>
+                </div>
+                <a href="your-lp.html" target="_blank" class="works-link">サイトを見る →</a>
+            </div>
+
+            <div class="work-card fade-in">
+                <div class="image-wrapper">
+                    <img loading="lazy" src="iphone.png" alt="ミニマル構成のポートフォリオWebサイト">
+                </div>
+                <div class="content">
+                    <h3>ポートフォリオ</h3>
+                    <p>読みやすさとシンプルさを重視した構成。</p>
+                </div>
+                <a href="index.html" target="_blank" class="works-link">サイトを見る →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICE -->
+<section id="price" class="fade-in">
+    <div class="inner">
+        <h2 class="section-title">料金表</h2>
+        <p class="section-lead">ご予算に合わせて柔軟に対応いたします。</p>
+
+        <div class="price-table">
+            <div class="price-card fade-in">
+                <h3>ライトプラン</h3>
+                <p class="price-val">¥39,800〜</p>
+                <ul>
+                    <li>1〜3ページ</li>
+                    <li>スマホ対応</li>
+                    <li>お問い合わせフォーム</li>
+                </ul>
+            </div>
+            <div class="price-card fade-in">
+                <h3>スタンダード</h3>
+                <p class="price-val">¥79,800〜</p>
+                <ul>
+                    <li>3〜6ページ</li>
+                    <li>オリジナルデザイン</li>
+                    <li>軽い文章作成</li>
+                </ul>
+            </div>
+            <div class="price-card fade-in">
+                <h3>LP制作</h3>
+                <p class="price-val">¥59,800〜</p>
+                <ul>
+                    <li>1ページ構成</li>
+                    <li>成約率重視の導線設計</li>
+                    <li>画像・装飾込み</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="fade-in">
+    <div class="inner">
+        <h2 class="section-title">よくある質問</h2>
+
+        <div class="faq-item fade-in">
+            <h3>Q. 初めてでも大丈夫ですか？</h3>
+            <p>A. はい。最初から最後まで丁寧にサポートいたします。</p>
+        </div>
+
+        <div class="faq-item fade-in">
+            <h3>Q. 素材がなくても依頼できますか？</h3>
+            <p>A. はい。文章・画像がなくてもこちらでご提案可能です。</p>
+        </div>
+
+        <div class="faq-item fade-in">
+            <h3>Q. 納品までどれくらいかかりますか？</h3>
+            <p>A. 最短3〜7日程度で対応可能です。</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT CHECK -->
+<section class="contact-check fade-in">
+    <div class="inner">
+        <h2 class="section-title">お問い合わせ前にご確認ください</h2>
+        <ul class="check-list">
+            <li class="fade-in">どんな目的のサイトを作りたいか</li>
+            <li class="fade-in">掲載したい情報が揃っているか</li>
+            <li class="fade-in">希望納期はあるか</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact" class="fade-in">
+    <div class="inner">
+        <h2 class="section-title">お問い合わせフォーム</h2>
+
+        <form action="https://formspree.io/f/mnnkowpg" method="POST" class="contact-form">
+            <div class="form-group fade-in">
+                <label for="name">お名前 <span>必須</span></label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group fade-in">
+                <label for="email">メールアドレス <span>必須</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group fade-in">
+                <label for="message">ご相談内容 <span>必須</span></label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit-btn fade-in">送信する</button>
+        </form>
+    </div>
+</section>
+
+<footer class="site-footer fade-in">
+    <p>© 2025 @Home Web制作サービス</p>
+</footer>
+
+<!-- Intersection Observer -->
+<script>
+    const targets = document.querySelectorAll('.fade-in, .timeline-item');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: "0px 0px -40px 0px"
+    });
+
+    targets.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,150 +1,233 @@
-/*全体リセットっぽいもの*/
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* --- RESET --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    font-family: system-ui, -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    color: #111;
-    line-height: 1.7;   /*行間*/
-    letter-spacing: 0.03em;   /*字間*/
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #111;
+  background: #fff;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
 }
 
-h1{
-    line-height: 1.2;
-    letter-spacing: 0.05; /*タイトルだけ少し広く*/
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
-h2{
-    line-height: 1.3;
-    letter-spacing: 0.04;
-    margin-bottom: 0.8em; /*見出しの余白統一*/
+/* --- HEADER --- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 48px;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-/*ヘッター*/
-.site-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 40px;
+.logo {
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.1em;
 }
 
-.logo{
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 0.1em;
+.global-nav a {
+  margin-left: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #111;
+  transition: opacity .2s;
+}
+.global-nav a:hover {
+  opacity: .6;
 }
 
-.global-nav a{
-    letter-spacing: 0.08em;
-    margin-left: 16px;
-    font-size: 14px;
-    text-decoration: none;
-    color: #111;
+/* ------------------------------- */
+/* HERO with VIDEO BACKGROUND      */
+/* ------------------------------- */
+.hero {
+  height: 85vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
 }
 
-/*Hero部分*/
-.hero{
-    height: 80vh;   /*画面の８割くらいの高さ*/
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    background: url("./hero.webp") center/cover no-repeat;/*画像*/
-    background-position: center right 10%;
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  filter: brightness(0.85);
 }
 
-.hero-copy{
-    max-width: 400px;
-    margin: 0 40px;
-    line-height: 1.6;
-    letter-spacing: 0.05em;
+.hero-inner-box {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 48px 48px 56px;
+  max-width: 420px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  backdrop-filter: blur(4px);
 }
 
-/*Hero-2部分*/
-.hero-2{
-    height: 80vh;   /*画面の８割くらいの高さ*/
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    background: url("./R.jpg") center/cover no-repeat;/*画像*/
-    background-position: center right 10%;
+.hero-tagline {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  margin-bottom: 12px;
 }
 
-section{
-    padding: 80px 0;
-    border: 1px solid #e0e0e0;
-    text-align: center;
+.hero-title {
+  font-size: 40px;
+  line-height: 1.35;
+  margin-bottom: 18px;
 }
 
-.hero-inner{
-    max-width: 420px;
-    background: rgba(255, 255, 255, 0.92);/*うっすら白い箱っぽく*/
-    box-shadow: o 4px 10px rgba(0, 0, 0, 0.06);
-    padding: 40px 40px 60px;
+.hero-desc {
+  font-size: 15px;
+  margin-bottom: 28px;
+  line-height: 1.8;
 }
 
-.hero-tagline{
-    font-size: 12px;
-    line-height: 1.1;
-    letter-spacing: 0.14em; /*見出し広め*/
-    margin-bottom: 12px;
+.hero-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 1px solid #111;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background .3s, color .3s;
 }
 
-.hero-title{
-    font-size: 36px;
-    line-height: 1.4; /*読みやすく広めに*/
-    letter-spacing: 0.02em;
-    margin-bottom: 16px;
+.hero-btn:hover {
+  background: #111;
+  color: #fff;
 }
 
-.hero-text{
-    flex: 1;
-    background: rgba(255, 255, 255, 0.88);/*うっすら白い箱っぽく*/
-    box-shadow: o 4px 10px rgba(0, 0, 0, 0.06);
+/* ------------------------------- */
+/* HERO 2 (STATIC IMAGE)          */
+/* ------------------------------- */
+.hero-2 {
+  height: 85vh;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  background: url('./R.jpg') center/cover no-repeat;
 }
 
-.hero-btn{
-    display: inline-block;
-    padding: 12px 28px;
-    font-size: 14px;
-    text-decoration: none;
-    border: 1px solid #111;
-    border-radius: 999px;
+.hero-2 .hero-inner-box {
+  background: rgba(255,255,255,0.88);
 }
 
-.hero-image{
-    flex: 1;
+/* ------------------------------- */
+/* PRODUCT GRID (UNIQLO STYLE)    */
+/* ------------------------------- */
+.products {
+  text-align: center;
+  padding: 96px 0;
 }
 
-.hero-sub{
-    max-width: 1200px;
-    margin: 40px auto 0;
-    padding: 40px 20px;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 24px;
-    align-items: center;
+.product-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 32px;
 }
 
-@media screen and(max-width: 768px) {
-    .hero-copy{
-        line-height: 1.6;
-    }
+.product-card {
+  background: #fff;
+  border: 1px solid #eee;
+  transition: transform .3s ease, box-shadow .3s ease;
+  cursor: pointer;
+}
 
-    .hero-sub{
-        grid-template-columns: 1fr;
-        padding: 32px 16px;
-    }
+.product-card img {
+  width: 100%;
+  display: block;
+}
 
-    .hero-inner{
-        flex-direction: column;
-    }
+.product-info {
+  padding: 16px;
+  text-align: left;
+}
 
-    .hero-image{
-        width: 100%;
-        min-height: 200px;
-    }
+.product-name {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.product-price {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Hover animation like UNIQLO */
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* ------------------------------- */
+/* NEWS / GALLERY                 */
+/* ------------------------------- */
+.news, .photos {
+  padding: 96px 0;
+  text-align: center;
+}
+
+.photo-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.photo-grid img {
+  width: 100%;
+  display: block;
+}
+
+/* ------------------------------- */
+/* FOOTER                         */
+/* ------------------------------- */
+footer {
+  padding: 32px;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* ------------------------------- */
+/* RESPONSIVE                     */
+/* ------------------------------- */
+@media screen and (max-width: 768px) {
+  .site-header {
+    padding: 16px 24px;
+  }
+
+  .hero,
+  .hero-2 {
+    padding: 0 24px;
+    height: 70vh;
+  }
+
+  .hero-inner-box {
+    max-width: 100%;
+    padding: 32px 28px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
 }

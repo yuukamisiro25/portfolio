@@ -10,35 +10,49 @@
 html, body {
   width: 100%;
   overflow-x: hidden;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   background: #fafafa;
   color: #111;
-  line-height: 1.7;
+  line-height: 1.75;
+  letter-spacing: -0.01em;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: opacity .2s;
+}
+
+a:hover {
+  opacity: 0.75;
 }
 
 .container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 20px;
+}
+
+/* ========== Apple-like Depth ========== */
+:root {
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 /* ========== Hero ========== */
 .apple-hero {
-  background: radial-gradient(circle at top, #f5f5f7 0%, #ffffff 50%, #f5f5f7 100%);
-  padding: 80px 0 40px;
+  background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 70%);
+  padding: 100px 0 60px;
 }
 
 .hero-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 60px;
 }
 
 .hero-text {
@@ -48,33 +62,35 @@ a {
 
 .hero-label {
   font-size: 14px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: #666;
 }
 
 .hero-title {
-  font-size: clamp(32px, 6vw, 56px);
-  font-weight: 600;
-  margin-top: 12px;
-  line-height: 1.2;
+  font-size: clamp(34px, 6vw, 60px);
+  font-weight: 700;
+  margin-top: 14px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .hero-sub {
-  margin-top: 20px;
+  margin-top: 24px;
   font-size: 18px;
-  color: #444;
+  color: #333;
   line-height: 1.6;
 }
 
+/* ボタン Apple 風 */
 .hero-btns {
-  margin-top: 32px;
+  margin-top: 40px;
   display: flex;
-  gap: 16px;
+  gap: 18px;
 }
 
 .hero-btn {
-  padding: 12px 24px;
-  border-radius: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
   font-weight: 600;
   display: inline-block;
   text-align: center;
@@ -94,9 +110,10 @@ a {
 
 .hero-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-md);
 }
 
+/* ========== Hero Card ========== */
 .hero-visual {
   flex: 1;
   display: flex;
@@ -104,18 +121,19 @@ a {
 }
 
 .hero-card {
-  max-width: 340px;
+  max-width: 360px;
   background: #fff;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   border: 1px solid #e5e5e5;
-  padding: 20px;
+  padding: 26px;
   text-align: center;
+  box-shadow: var(--shadow-sm);
 }
 
 .hero-card-image img {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 12px;
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
 }
 
 .hero-card-label {
@@ -124,75 +142,73 @@ a {
 }
 
 .hero-card-title {
-  margin-top: 10px;
-  font-size: 18px;
+  margin-top: 12px;
+  font-size: 20px;
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .hero-card-text {
-  font-size: 14px;
+  font-size: 15px;
   color: #555;
-  margin: 8px 0 16px;
-}
-
-.hero-card-link {
-  color: #0071e3;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.hero-card-link:hover {
-  text-decoration: underline;
+  margin: 10px 0 18px;
 }
 
 /* ========== Sections ========== */
 .section {
-  padding: 60px 0;
+  padding: 80px 0;
 }
 
 .section-title {
-  font-size: 28px;
+  font-size: 30px;
   text-align: center;
-  margin-bottom: 24px;
+  font-weight: 700;
+  margin-bottom: 26px;
+  letter-spacing: -0.02em;
 }
 
 .section-text {
   text-align: center;
-  font-size: 16px;
-  color: #444;
-  margin-bottom: 24px;
+  font-size: 17px;
+  color: #555;
+  margin-bottom: 30px;
 }
 
 .section-list {
-  max-width: 680px;
+  max-width: 660px;
   margin: 0 auto;
-  list-style: disc inside;
+  list-style: none;
   font-size: 17px;
-  line-height: 1.6;
 }
 
-.section-list li + li {
-  margin-top: 10px;
+.section-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.section-list li:last-child {
+  border-bottom: none;
 }
 
 /* ========== Strengths ========== */
 .strengths .strength-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  gap: 26px;
 }
 
 .strength-item {
-  background: #fff;
+  background: #ffffff;
   border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: var(--radius-md);
+  padding: 26px;
   line-height: 1.7;
+  box-shadow: var(--shadow-sm);
 }
 
 .strength-item h3 {
   font-size: 20px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .strength-item p {
@@ -200,144 +216,123 @@ a {
   color: #555;
 }
 
-/* ========== Works / Portfolio Cards ========== */
+/* ========== Works ========== */
 .works-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 50px;
 }
 
 .works-card.detail {
   background: #fff;
   border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: var(--radius-md);
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: var(--shadow-sm);
 }
 
 .works-card.detail:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow-md);
 }
 
 .works-thumb img {
   width: 100%;
-  display: block;
-  border-radius: 8px;
-  margin-bottom: 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
 }
 
 .works-card.detail h3 {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .works-desc {
   font-size: 15px;
   color: #555;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   flex-grow: 1;
 }
 
 .works-meta {
   font-size: 14px;
   color: #666;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
-.works-meta li + li {
-  margin-top: 4px;
-}
-
-.works-link {
-  display: inline-block;
-  padding: 10px 14px;
-  border-radius: 6px;
-  background: #111;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: auto;
-}
-
-.works-link.disabled {
-  background: #ccc;
-  pointer-events: none;
-}
-
-/* ========== Price / Service List ========== */
+/* ========== Price ========== */
 .price-list {
   max-width: 480px;
   margin: 0 auto;
   list-style: none;
   text-align: center;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .price-list li + li {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .small {
   font-size: 14px;
   color: #666;
+  line-height: 1.6;
 }
 
 /* ========== Contact Button ========== */
 .btn-contact {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 14px 34px;
   background: #111;
   color: #fff;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   font-weight: 600;
   text-align: center;
 }
 
-/* ========== Floating Contact Button (スマホ向け) ========== */
+/* ========== Floating Contact Button ========== */
 .floating-contact {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 22px;
+  right: 22px;
   background: #111;
   color: #fff;
-  padding: 14px 22px;
+  padding: 14px 26px;
   font-size: 14px;
   border-radius: 40px;
   z-index: 999;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  box-shadow: var(--shadow-md);
 }
 
 /* ========== Footer ========== */
 .footer {
-  padding: 40px 0;
+  padding: 50px 0;
   text-align: center;
   font-size: 14px;
   color: #666;
 }
 
-/* ========== Responsive Adjustments ========== */
+/* ========== Responsive ========== */
 @media (max-width: 992px) {
   .hero-inner {
     flex-direction: column;
-    gap: 32px;
+    gap: 40px;
     text-align: center;
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 50px 0;
+    padding: 60px 0;
   }
 
   .hero-btns {
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
   }
 
   .hero-card {
@@ -348,9 +343,9 @@ a {
 
 @media (max-width: 550px) {
   .works-list {
-    gap: 20px;
+    gap: 22px;
   }
   .works-card.detail {
-    padding: 16px;
+    padding: 18px;
   }
 }

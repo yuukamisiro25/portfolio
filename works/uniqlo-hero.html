@@ -1,61 +1,112 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>UNIQLO Hero 模写</title>
-        <link rel="stylesheet" href="uniqlo-hero.css">
-    </head>
-    <body>
-        <header class="site-header">
-            <div class="logo">UNIQLO</div>
-            <nav class="global-nav">
-                <a href="#">WOMEN</a>
-                <a href="#">MEN</a>
-                <a href="#">KIDS</a>
-                <a href="#">BABY</a>
-            </nav>
-        </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNIQLO Style Mock</title>
+  <link rel="stylesheet" href="uniqlo-hero.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo">UNIQLO</div>
+    <nav class="global-nav">
+      <a href="#">WOMEN</a>
+      <a href="#">MEN</a>
+      <a href="#">KIDS</a>
+      <a href="#">BABY</a>
+    </nav>
+  </header>
 
-        <section class="hero">
-            <div class="section-inner">
-                <div class="hero-inner">
-                    <p class="hero-tagline">HEATTECH COLLECTION</p>
-                    <h1 class="hero-title hero-copy">冬を、もっと軽く。</h1>
-                    <p class="hero-text">
-                        すっきりとしたシルエットと、あたたかさ。<br>
-                        デイリーに着られるヒートテックアイテム。
-                    </p>
-                    <a href="#" class="hero-btn">コレクションを見る</a>
-                </div>
-            </div>
-        </section>
+  <!-- HERO WITH VIDEO BACKGROUND -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+       <source src="hero-video.mp4" type="video/mp4" />
+    </video>
 
-        <section class="products">
-            <div class="section-inner">
-            <h2>商品一覧（仮）</h2>
-            </div>
-        </section>
+    <div class="hero-inner-box">
+      <p class="hero-tagline">HEATTECH COLLECTION</p>
+      <h1 class="hero-title">冬を、もっと軽く。</h1>
+      <p class="hero-desc">
+        すっきりとしたシルエットと、あたたかさ。<br />
+        デイリーに着られるヒートテックアイテム。
+      </p>
+      <a href="#" class="hero-btn">コレクションを見る</a>
+    </div>
+  </section>
 
-        <section class="hero-2">
-            <div class="section-inner">
-                <div class="hero-text">
-                    <h2>NEW ARRIVALS</h2>
-                    <p>今シーズンの新作アイテムをチェック。</p>
-                    <a href="#" class="btn btn-outline">アイテム一覧を見る</a>
-                </div>
-            </div>
-        </section>
+  <!-- PRODUCT LIST SECTION -->
+  <section class="products">
+    <div class="section-inner">
+      <h2>商品一覧</h2>
 
-        <section class="news">
-            <h2>NEWS（仮）</h2>
-        </section>
+      <div class="product-grid">
+        <!-- Product Card 1 -->
+        <div class="product-card">
+          <img src="item1.jpg" alt="item1" />
+          <div class="product-info">
+            <p class="product-name">ヒートテッククルーネックT（長袖）</p>
+            <p class="product-price">¥1,290</p>
+          </div>
+        </div>
 
-        <section class="photos">
-            <h2>フォトギャラリー（仮）</h2>
-        </section>
+        <!-- Product Card 2 -->
+        <div class="product-card">
+          <img src="item2.jpg" alt="item2" />
+          <div class="product-info">
+            <p class="product-name">極暖ヒートテックインナー</p>
+            <p class="product-price">¥1,990</p>
+          </div>
+        </div>
 
-        <footer>
-            <p>FOOTER</p>
-        </footer>
-    </body>
+        <!-- Product Card 3 -->
+        <div class="product-card">
+          <img src="item3.jpg" alt="item3" />
+          <div class="product-info">
+            <p class="product-name">ヒートテックタイツ</p>
+            <p class="product-price">¥990</p>
+          </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="product-card">
+          <img src="item4.jpg" alt="item4" />
+          <div class="product-info">
+            <p class="product-name">ヒートテックフリース</p>
+            <p class="product-price">¥2,990</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND HERO (NEW ARRIVALS) -->
+  <section class="hero-2">
+    <div class="hero-inner-box">
+      <h2 class="hero-title">NEW ARRIVALS</h2>
+      <p class="hero-desc">今シーズンの新作アイテムをチェック。</p>
+      <a href="#" class="hero-btn">アイテム一覧を見る</a>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="news">
+    <h2>NEWS</h2>
+    <p>キャンペーン・新作リリース情報などを近日公開</p>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section class="photos">
+    <h2>フォトギャラリー</h2>
+    <div class="photo-grid">
+      <img src="p1.jpg" alt="p1" />
+      <img src="p2.jpg" alt="p2" />
+      <img src="p3.jpg" alt="p3" />
+    </div>
+  </section>
+
+  <footer>
+    <p>© UNIQLO STYLE MOCK</p>
+  </footer>
+</body>
 </html>
