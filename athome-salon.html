@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>プライベートヘアサロン — ホテルライク</title>
+  <style>
+/* ================= Reset / Base ================= */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:"Noto Sans JP",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  color:#222;background:#fff;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ================ Theme variables (Hotel Luxury) ================ */
+:root{
+  --bg:#ffffff;
+  --muted:#7a7570;
+  --text:#222;
+  --accent:#c8a856;           /* gold */
+  --accent-2:#b29344;        /* dark gold */
+  --card:#f7f6f5;
+  --border:#e7e4df;
+  --header-height:72px;
+  --ease: cubic-bezier(.2,.9,.2,1);
+}
+
+/* ================= Layout helpers ================= */
+.container{width:90%;max-width:1100px;margin:0 auto}
+.section{padding:80px 0}
+.section.gray{background:#faf9f7}
+.center{text-align:center}
+.section-title{font-size:28px;font-weight:700;margin-bottom:18px;display:inline-block;position:relative}
+
+/* ================= Header ================= */
+.header{
+  position:fixed;left:0;right:0;top:0;height:var(--header-height);display:flex;
+  align-items:center;z-index:120;transition:background 300ms var(--ease), box-shadow 300ms var(--ease), transform 300ms var(--ease);
+  padding:0 6%;
+  background: linear-gradient(rgba(255,255,255,0.0), rgba(255,255,255,0.0));
+  border-bottom: 1px solid transparent;
+}
+.header.inner{width:100%}
+.header .logo{font-weight:700;color:var(--accent);letter-spacing:0.04em;font-size:18px}
+.header nav{margin-left:auto;display:flex;gap:22px;align-items:center}
+.header a{font-size:14px;color:var(--text);opacity:.9;padding:6px 8px;position:relative}
+.header a:hover{opacity:1}
+.header.scrolled{
+  background:var(--bg);
+  box-shadow:0 6px 18px rgba(10,10,10,0.04);
+  border-bottom:1px solid rgba(194,173,122,0.12);
+  backdrop-filter: blur(6px);
+}
+
+/* thin gold line under header when scrolled */
+.header.scrolled::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  opacity:0.9;
+}
+
+/* mobile menu */
+.hamburger{display:none;width:42px;height:42px;border-radius:8px;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,0.6)}
+@media(max-width:880px){
+  .header nav{display:none}
+  .hamburger{display:flex;margin-left:auto}
+}
+
+/* ================ HERO (parallax bg + overlay) ================ */
+.hero{
+  position:relative;padding:140px 0 120px;margin-top:var(--header-height);
+  background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;background-position:center center;
+  background-attachment:fixed;color:#111;overflow:hidden;
+}
+.hero .container{position:relative;z-index:30}
+.hero h1{font-size:44px;color:#0f0f0f;line-height:1.14;margin-bottom:14px}
+.hero p{font-size:16px;color:var(--muted);margin-bottom:22px}
+
+/* white soft overlay for hotel mood (ensures readability) */
+.hero::before{
+  content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(255,255,255,0.72), rgba(255,255,255,0.18));pointer-events:none;z-index:10;
+}
+
+/* background warm gold bokeh (soft, behind everything) */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(200,168,86,0.18) 0%, transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(200,168,86,0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(200,168,86,0.08) 0%, transparent 50%);
+  background-size:700px 700px,900px 900px,1200px 1200px;
+  filter:blur(40px);opacity:.42;
+}
+
+/* gold particle floats (subtle) - separated element for control */
+.hero .particles{position:absolute;inset:0;z-index:20;pointer-events:none;background-image:
+  radial-gradient(circle, rgba(200,168,86,0.6) 0%, transparent 60%),
+  radial-gradient(circle, rgba(200,168,86,0.35) 0%, transparent 60%),
+  radial-gradient(circle, rgba(200,168,86,0.18) 0%, transparent 60%);
+  background-size:4px 4px,3px 3px,2px 2px;background-position:0 0,20% 40%,70% 80%;
+  animation:particlesFloat 14s linear infinite;
+}
+@keyframes particlesFloat{0%{background-position:0 0,20% 40%,70% 80%}100%{background-position:0 -600px,20% -500px,70% -700px}}
+
+/* gold streak across hero */
+.hero .gold-streak{position:absolute;left:-40%;top:10%;width:200%;height:60%;z-index:22;pointer-events:none;
+  background:linear-gradient(90deg, transparent 0%, rgba(200,168,86,0.18) 40%, rgba(200,168,86,0.32) 50%, rgba(200,168,86,0.18) 60%, transparent 100%);
+  transform:translateX(-30%);filter:blur(18px);opacity:0.0;animation:goldStreak 9s ease-in-out infinite;
+}
+@keyframes goldStreak{
+  0%{transform:translateX(-30%);opacity:0}
+  20%{opacity:1}
+  60%{transform:translateX(30%);opacity:1}
+  100%{transform:translateX(80%);opacity:0}
+}
+
+/* call-to-action buttons in hero */
+.hero .cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border-radius:40px;font-weight:700;cursor:pointer;border:0;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+/* primary gold gradient */
+.btn-primary{
+  color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  box-shadow:0 6px 18px rgba(200,168,86,0.18);
+}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(200,168,86,0.24)}
+
+/* reserve special monotone × gold (with rotating border) */
+.btn-reserve{
+  position:relative;overflow:visible;background:linear-gradient(135deg,#111,#333);
+  color:var(--accent);border-radius:40px;padding:12px 28px;border:1px solid rgba(255,255,255,0.05);
+  z-index:2;box-shadow:0 6px 18px rgba(0,0,0,0.25)
+}
+/* rotating conic outer glow (no mask) */
+.btn-reserve::before{
+  content:"";position:absolute;inset:-3px;border-radius:44px;z-index:-2;
+  background:conic-gradient(from 0deg, transparent 0deg, var(--accent) 60deg, transparent 140deg, var(--accent-2) 220deg, transparent 360deg);
+  filter:blur(8px) saturate(1.05);animation:borderSpin 4.2s linear infinite;
+}
+.btn-reserve::after{
+  content:"";position:absolute;inset:2px;border-radius:38px;z-index:-1;background:linear-gradient(135deg,#111,#333);
+}
+@keyframes borderSpin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+/* particle trail on hover */
+.btn-reserve .trail{position:absolute;top:50%;left:-48px;width:36px;height:36px;transform:translateY(-50%);opacity:0;pointer-events:none;border-radius:50%;
+  background:radial-gradient(circle, rgba(200,168,86,0.85) 0%, rgba(200,168,86,0.2) 50%, transparent 70%);
+  transition:left .5s var(--ease),opacity .35s var(--ease);
+}
+.btn-reserve:hover .trail{left:calc(100% + 20px);opacity:1}
+
+/* ================ Sections & Cards ================ */
+.menu-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.card, .product-card{background:linear-gradient(180deg,#fff,#faf8f6);border-radius:16px;padding:20px;border:1px solid rgba(200,168,86,0.12);box-shadow:0 8px 22px rgba(0,0,0,0.06);position:relative;overflow:hidden}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14px}
+
+/* subtle light band across card */
+.product-card::after{
+  content:"";position:absolute;left:0;right:0;top:48%;height:36%;transform:translateY(-50%);
+  background:linear-gradient(to bottom, transparent, rgba(255,255,255,0.25), transparent);pointer-events:none;z-index:1
+}
+
+/* gold speckles on corners (two pseudo elements for safety) */
+.product-card::before{
+  content:"";position:absolute;left:8px;top:8px;width:120px;height:120px;pointer-events:none;
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><circle cx="12" cy="12" r="8" fill="%23c8a856" opacity="0.45"/><circle cx="36" cy="36" r="5" fill="%23c8a856" opacity="0.28"/></svg>');
+  background-repeat:no-repeat;opacity:0.18;mix-blend-mode:screen;z-index:2;
+}
+.product-card .corner-bottom{
+  position:absolute;right:8px;bottom:8px;width:90px;height:90px;background-image:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"90\" height=\"90\"><circle cx=\"10\" cy=\"10\" r=\"6\" fill=\"%23c8a856\" opacity=\"0.28\"/></svg>');background-repeat:no-repeat;opacity:0.12;mix-blend-mode:screen;pointer-events:none
+}
+
+/* ================ Gold line grow (for headings) ================ */
+.gold-line{height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:3px;margin:10px auto 0;transition:width .9s var(--ease)}
+
+/* ================ Fade-in (scroll reveal) ================ */
+.fade-in{opacity:0;transform:translateY(12px);transition:opacity .8s var(--ease), transform .8s var(--ease)}
+.fade-in.visible{opacity:1;transform:none}
+
+/* fade delays controlled by classes */
+.fade-delay-1{transition-delay:.18s}
+.fade-delay-2{transition-delay:.34s}
+.fade-delay-3{transition-delay:.52s}
+.fade-delay-4{transition-delay:.7s}
+
+/* subtle hover for product image/title */
+.product-media{border-radius:12px;overflow:hidden;height:180px;margin-bottom:12px;background:#efeae3;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+
+/* ================ Footer ================ */
+footer{padding:30px 0;background:#fbfaf8;border-top:1px solid var(--border)}
+.footer-inner{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.footer-inner a{color:var(--accent);text-decoration:none}
+
+/* ================ Responsive ================ */
+@media(max-width:880px){
+  .hero{padding:110px 0 80px;background-attachment:scroll}
+  .hero h1{font-size:28px}
+  .container{width:92%}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:520px){
+  .hero{padding:90px 0 64px}
+  .section{padding:48px 0}
+  .section-title{font-size:20px}
+  .btn{padding:10px 16px;font-size:14px}
+  .product-media{height:150px}
+}
+
+/* for accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important}
+}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="siteHeader" role="banner">
+    <div class="logo" style="font-weight:700;color:var(--accent)">○○ヘアサロン</div>
+    <nav aria-label="Main Navigation">
+      <a href="#menu">メニュー</a>
+      <a href="#price">料金</a>
+      <a href="#flow">ご来店の流れ</a>
+      <a href="#voice">お客様の声</a>
+      <a href="#faq">FAQ</a>
+      <a href="#access">アクセス</a>
+      <a href="#reservation" class="btn-reserve" style="margin-left:16px;">
+        <span class="trail" aria-hidden="true"></span>
+        <span style="position:relative;z-index:2">ご予約</span>
+      </a>
+    </nav>
+    <button class="hamburger" aria-label="Open menu" style="display:none">☰</button>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero" role="region" aria-label="Hero">
+    <div class="particles" aria-hidden="true"></div>
+    <div class="gold-streak" aria-hidden="true"></div>
+    <div class="container">
+      <h1>あなたの髪に、特別な時間を</h1>
+      <p>一日6名限定の完全予約制プライベートサロン</p>
+      <div class="cta">
+        <a href="#reservation" class="btn btn-primary">新規ご予約はこちら</a>
+        <a href="#reservation" class="btn btn-reserve" aria-label="予約ボタン">
+          <span class="trail" aria-hidden="true"></span>
+          ご予約（LINEでも可）
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="section">
+    <div class="container">
+      <h2 class="section-title">メニュー</h2>
+      <div class="gold-line" data-grow></div>
+      <div style="height:16px"></div>
+      <div class="menu-list">
+        <article class="product-card fade-in fade-delay-1">
+          <div class="product-media">写真</div>
+          <h3>カット</h3>
+          <p>丁寧なカウンセリングであなたに最適なスタイルをご提案します。</p>
+          <div class="corner-bottom" aria-hidden="true"></div>
+        </article>
+
+        <article class="product-card fade-in fade-delay-2">
+          <div class="product-media">写真</div>
+          <h3>カラー</h3>
+          <p>ダメージを抑えた高品質カラー剤を使用しています。</p>
+          <div class="corner-bottom" aria-hidden="true"></div>
+        </article>
+
+        <article class="product-card fade-in fade-delay-3">
+          <div class="product-media">写真</div>
+          <h3>パーマ</h3>
+          <p>自然なカールからしっかりパーマまで対応。</p>
+          <div class="corner-bottom" aria-hidden="true"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section id="price" class="section gray">
+    <div class="container">
+      <h2 class="section-title">料金</h2>
+      <div class="gold-line" data-grow></div>
+      <div style="height:18px"></div>
+      <div class="price-table">
+        <div class="price-item"><span>カット</span><strong>¥6,000</strong></div>
+        <div class="price-item"><span>カラー</span><strong>¥7,500〜</strong></div>
+        <div class="price-item"><span>カット＋カラー</span><strong>¥12,000〜</strong></div>
+        <div class="price-item"><span>パーマ</span><strong>¥9,000〜</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section id="flow" class="section">
+    <div class="container">
+      <h2 class="section-title">ご来店の流れ</h2>
+      <div class="gold-line" data-grow></div>
+      <div style="height:18px"></div>
+      <div class="flow-steps">
+        <div class="card fade-in fade-delay-1"><h3>① ご予約</h3><p>LINE または Web 予約から24時間受付しています。</p></div>
+        <div class="card fade-in fade-delay-2"><h3>② カウンセリング</h3><p>髪のお悩みや理想のスタイルを共有します。</p></div>
+        <div class="card fade-in fade-delay-3"><h3>③ 施術</h3><p>完全マンツーマンで丁寧に施術します。</p></div>
+        <div class="card fade-in fade-delay-4"><h3>④ アフターケア</h3><p>自宅でできるケア方法もご提案します。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICE -->
+  <section id="voice" class="section gray">
+    <div class="container">
+      <h2 class="section-title">お客様の声</h2>
+      <div class="gold-line" data-grow></div>
+      <div style="height:18px"></div>
+      <div class="voice-list">
+        <div class="voice-item fade-in fade-delay-1"><p class="voice-text">とても丁寧にカウンセリングしてくださり、理想以上の仕上がりでした！</p><div class="voice-name">40代 女性</div></div>
+        <div class="voice-item fade-in fade-delay-2"><p class="voice-text">今までで一番扱いやすい髪になりました。またよろしくお願いします。</p><div class="voice-name">30代 男性</div></div>
+        <div class="voice-item fade-in fade-delay-3"><p class="voice-text">落ち着いた空間でリラックスできるので毎回楽しみです。</p><div class="voice-name">20代 女性</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2 class="section-title">よくある質問</h2>
+      <div class="gold-line" data-grow></div>
+      <div style="height:18px"></div>
+      <div class="faq-list">
+        <details class="fade-in fade-delay-1"><summary>予約はどのくらい前から可能ですか？</summary><p>ご希望日の30日前からご予約いただけます。</p></details>
+        <details class="fade-in fade-delay-2"><summary>支払い方法は何がありますか？</summary><p>現金・クレジットカード・電子マネーに対応しています。</p></details>
+        <details class="fade-in fade-delay-3"><summary>子供連れでも大丈夫ですか？</summary><p>完全個室のため、お子様連れでも安心です。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section id="access" class="section gray">
+    <div class="container">
+      <h2 class="section-title">アクセス</h2>
+      <div class="gold-line" data-grow></div>
+      <div style="height:18px"></div>
+      <div class="access-wrapper">
+        <div class="access-info card fade-in fade-delay-1">
+          <p>〒000-0000 東京都○○区○○ 1-2-3 ○○ビル 2F</p>
+          <p>営業時間：10:00〜20:00（不定休）</p>
+          <p>最寄り駅：○○駅 徒歩5分</p>
+        </div>
+        <div class="map fade-in fade-delay-2"><iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.951..." style="width:100%;height:250px;border:0;border-radius:12px"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVATION -->
+  <section id="reservation" class="section">
+    <div class="container">
+      <h2 class="section-title">ご予約</h2>
+      <div class="gold-line" data-grow></div>
+      <p class="center" style="margin-top:18px">24時間いつでも Web 予約が可能です。</p>
+      <div style="height:18px"></div>
+      <div class="center">
+        <a class="btn btn-primary" href="#">Webで予約する</a>
+        <a class="btn btn-reserve" href="#contact" style="margin-left:14px"><span class="trail" aria-hidden="true"></span>LINEで予約</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2025 ○○ヘアサロン / Private Hair Salon</div>
+      <div class="footer-links">
+        <a href="#hero">トップに戻る</a>
+        <a href="#">Instagram</a>
+        <a href="#">LINE</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Minimal JS: header scroll, scroll reveal, gold-line grow -->
+  <script>
+(function(){
+  // Header scroll behavior
+  const header = document.getElementById('siteHeader');
+  const hero = document.getElementById('hero');
+  function onScroll(){
+    const y = window.scrollY || window.pageYOffset;
+    if(y > 60) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // IntersectionObserver for fade-in and gold-line grow
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        // gold-line growth if present inside target cluster
+        const gl = entry.target.querySelectorAll && entry.target.querySelectorAll('.gold-line[data-grow]');
+        if(gl && gl.length){
+          gl.forEach(el => { el.style.width = '120px'; });
+        }
+      }
+    });
+  },{threshold:0.12});
+
+  document.querySelectorAll('.fade-in, .card, .product-card, .voice-item, .faq-list details').forEach(el=> io.observe(el));
+
+  // Also observe top-level sections to grow heading lines
+  document.querySelectorAll('.section').forEach(sec => {
+    io.observe(sec);
+  });
+
+  // Simple mobile menu toggle (if you later implement)
+  const ham = document.querySelector('.hamburger');
+  const nav = document.querySelector('.header nav');
+  if(ham){
+    ham.addEventListener('click', ()=> {
+      if(nav.style.display === 'flex') nav.style.display = 'none'; else nav.style.display = 'flex';
+    });
+  }
+})();
+  </script>
+</body>
+</html>
+
