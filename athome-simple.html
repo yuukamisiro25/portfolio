@@ -1,0 +1,247 @@
+<!-- Hotel-style Luxury Header -->
+<header class="lux-header">
+  <div class="lux-header-inner">
+    <div class="lux-logo">Private Salon</div>
+    <nav class="lux-nav">
+      <a href="#services">Services</a>
+      <a href="#concept">Concept</a>
+      <a href="#price">Price</a>
+      <a href="#reserve" class="lux-reserve-btn">Reserve</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .lux-header {
+    width: 100%;
+    padding: 18px 0;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+
+  .lux-header-inner {
+    width: min(92%, 1280px);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .lux-logo {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #222;
+  }
+
+  .lux-nav a {
+    margin-left: 26px;
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: #444;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .lux-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #c7a866, #f7e7b4, #c8a45a);
+    transition: 0.35s ease;
+    border-radius: 2px;
+  }
+  .lux-nav a:hover::after {
+    width: 100%;
+  }
+
+  .lux-reserve-btn {
+    padding: 8px 18px;
+    border: 1px solid #d1b578;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #f9f1d6, #e2c995);
+    color: #513f1d !important;
+    font-weight: 600;
+  }
+  .lux-reserve-btn:hover {
+    filter: brightness(1.08);
+  }
+.lux-reserve-btn {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 22px;
+    border: 1px solid #d8c08a;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #fff8e6, #e8d3a2 40%, #d7b676);
+    color: #5a4622 !important;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.4s ease;
+  }
+
+  /* Gold glow when hover */
+  .lux-reserve-btn:hover {
+    filter: brightness(1.12);
+    box-shadow: 0 0 18px rgba(215,182,118,0.55);
+  }
+
+  /* Gold running border (1周する光) */
+  .lux-reserve-btn::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 8px;
+    padding: 2px;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,230,150,0.9),
+      transparent
+    );
+    background-size: 300% 300%;
+    animation: goldBorderMove 4s linear infinite;
+    z-index: 0;
+  }
+
+  /* Inner content */
+  .lux-reserve-btn span {
+    position: relative;
+    z-index: 3;
+  }
+
+  @keyframes goldBorderMove {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+.lux-reserve-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.55) 50%,
+      rgba(255,255,255,0) 100%
+    );
+    filter: blur(6px);
+    animation: verticalShine 3.8s linear infinite;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  @keyframes verticalShine {
+    0%   { transform: translateX(-120%); }
+    50%  { transform: translateX(60%); }
+    100% { transform: translateX(120%); }
+  }
+</style>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>シンプル個人サロン</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Noto Sans JP",sans-serif;color:#333;line-height:1.7;background:#fff}
+    header{padding:14px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;}
+    header .logo{font-weight:700;font-size:18px;}
+    header nav{display:flex;gap:18px;font-size:14px}
+    header a{text-decoration:none;color:#333}
+
+    .hero{padding:80px 0;text-align:center;background:#f7f7f7;margin-bottom:40px}
+    .hero h1{font-size:32px;margin-bottom:10px}
+    .hero p{color:#666;font-size:15px;margin-bottom:20px}
+    .btn{display:inline-block;padding:12px 24px;border-radius:30px;background:#333;color:#fff;text-decoration:none;font-size:14px}
+
+    .section{padding:60px 0}
+    .container{width:90%;max-width:900px;margin:0 auto}
+    .section-title{font-size:22px;margin-bottom:20px;text-align:center;font-weight:700}
+
+    .menu-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .card{border:1px solid #eee;border-radius:12px;padding:18px;background:#fff}
+    .card h3{font-size:17px;margin-bottom:6px}
+    .card p{font-size:14px;color:#666}
+
+    .price-table{display:grid;gap:14px;font-size:15px}
+    .price-item{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding-bottom:8px}
+
+    footer{padding:20px 0;margin-top:60px;border-top:1px solid #eee;text-align:center;font-size:13px;color:#777}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">シンプルサロン</div>
+    <nav>
+      <a href="#menu">メニュー</a>
+      <a href="#price">料金</a>
+      <a href="#access">アクセス</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>気軽に通える、あなたの町のヘアサロン</h1>
+    <p>丁寧な接客と落ち着いた空間をご提供します。</p>
+    <a class="btn" href="#reservation">予約する</a>
+  </section>
+
+  <section id="menu" class="section">
+    <div class="container">
+      <h2 class="section-title">メニュー</h2>
+      <div class="menu-list">
+        <div class="card"><h3>カット</h3><p>お客様に合わせた似合わせカット。</p></div>
+        <div class="card"><h3>カラー</h3><p>自然で綺麗な発色のカラー。</p></div>
+        <div class="card"><h3>パーマ</h3><p>柔らかい質感のパーマスタイル。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price" class="section" style="background:#fafafa">
+    <div class="container">
+      <h2 class="section-title">料金</h2>
+      <div class="price-table">
+        <div class="price-item"><span>カット</span><strong>¥4,500</strong></div>
+        <div class="price-item"><span>カラー</span><strong>¥6,000〜</strong></div>
+        <div class="price-item"><span>パーマ</span><strong>¥7,000〜</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="access" class="section">
+    <div class="container">
+      <h2 class="section-title">アクセス</h2>
+      <p>〒000-0000 東京都○○区○○1-2-3</p>
+      <p>営業時間：10:00〜20:00</p>
+    </div>
+  </section>
+
+  <section id="reservation" class="section" style="text-align:center">
+    <div class="container">
+      <h2 class="section-title">ご予約</h2>
+      <a class="btn" href="#">Web予約はこちら</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 シンプルサロン
+  </footer>
+</body>
+</html>
+
